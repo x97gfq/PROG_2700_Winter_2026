@@ -1,0 +1,62 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>PROG 2700 Client-Side Programming — Semantic Solution</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root { --bg:#0f172a; --text:#e5e7eb; --muted:#9ca3af; --accent:#2563eb; --card:#111827; --border:#1f2937; }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--text)}
+    .brand{background:#1e3a8a;color:#eef2ff;padding:0.75rem;text-align:center}
+    header,footer{padding:1rem;border-bottom:1px solid var(--border)}
+    footer{border-top:1px solid var(--border);border-bottom:none;text-align:center}
+    main{max-width:960px;margin:1rem auto;padding:0 1rem}
+    nav a{color:#93c5fd;margin-right:0.5rem;text-decoration:none}
+    section.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1rem;margin-bottom:1rem}
+    img{max-width:100%;height:auto}
+    form{display:grid;gap:0.5rem}
+    label{font-weight:600}
+    input,button{font:inherit}
+    input{padding:0.5rem 0.75rem;border-radius:10px;border:1px solid var(--border);background:#0b1220;color:var(--text)}
+    button{padding:0.5rem 0.75rem;border-radius:10px;border:1px solid var(--border);background:#0b1220;color:var(--text);cursor:pointer}
+  </style>
+</head>
+<body>
+  <div class="brand" aria-label="Course brand">PROG 2700 Client-Side Programming</div>
+  <header>
+    <h1>My Site</h1>
+    <nav aria-label="Primary">
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+  <main>
+    <article aria-labelledby="about-title" class="card">
+      <h2 id="about-title">About</h2>
+      <img src="https://placehold.co/600x300" alt="Placeholder banner" />
+      <p>Welcome to my site. This page demonstrates semantic HTML and accessible form markup.</p>
+    </article>
+
+    <section aria-labelledby="contact-title" class="card">
+      <h2 id="contact-title">Contact</h2>
+      <form action="#" method="post">
+        <div>
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" placeholder="Your name" required />
+        </div>
+        <div>
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="name@example.com" required />
+        </div>
+        <button type="submit">Submit</button>
+      </form>
+    </section>
+  </main>
+  <footer>
+    <small>© 2026 My Site</small>
+  </footer>
+</body>
+</html>
