@@ -1,0 +1,102 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Semantic HTML Example</title>
+    </head>
+    <body>
+
+        <!-- Page header and primary navigation -->
+        <header>
+            <h1>My Semantic Webpage</h1>
+            <nav aria-label="Primary">
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#articles">Articles</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            </nav>
+        </header>
+
+        <!-- Main content area -->
+        <main>
+
+            <!-- About section -->
+            <section id="about" aria-labelledby="about-title">
+            <h2 id="about-title">About This Page</h2>
+            <p>
+                This page demonstrates semantic HTML—using meaningful elements like
+                <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>,
+                <code>&lt;main&gt;</code>, <code>&lt;section&gt;</code>,
+                <code>&lt;article&gt;</code>, <code>&lt;aside&gt;</code>, and
+                <code>&lt;footer&gt;</code>.
+            </p>
+            <p>
+                Last updated:
+                <time datetime="2026-01-05">January 5, 2026</time>
+            </p>
+            </section>
+
+            <!-- Articles section containing multiple articles -->
+            <section id="articles" aria-labelledby="articles-title">
+            <h2 id="articles-title">Articles</h2>
+
+            <article aria-labelledby="a1-title">
+                <header>
+                <h3 id="a1-title">Why Semantic HTML Matters</h3>
+                <p>
+                    <time datetime="2026-01-05">January 5, 2026</time>
+                </p>
+                </header>
+
+                <p>
+                Semantic HTML improves accessibility (screen readers understand landmarks),
+                SEO (search engines understand content structure), and maintainability
+                (clear, meaningful tags make code easier to read).
+                </p>
+
+                <footer>
+                <p>Written by Jamie</p>
+                </footer>
+            </article>
+
+            <article aria-labelledby="a2-title">
+                <header>
+                <h3 id="a2-title">Structuring Pages the Right Way</h3>
+                <p>
+                    <time datetime="2026-01-04">January 4, 2026</time>
+                </p>
+                </header>
+
+                <p>
+                Use <code>&lt;section&gt;</code> for thematic grouping with headings,
+                <code>&lt;article&gt;</code> for self-contained content, and
+                <code>&lt;aside&gt;</code> for tangential information like sidebars
+                or callouts.
+                </p>
+
+                <footer>
+                <p>Written by Jamie</p>
+                </footer>
+            </article>
+            </section>
+
+            <!-- Complementary content -->
+            <aside aria-labelledby="sidebar-title">
+            <h2 id="sidebar-title">Sidebar</h2>
+            <p>Useful links, announcements, or supporting info can go here.</p>
+            </aside>
+
+        </main>
+
+        <!-- Page footer -->
+        <footer id="contact" aria-labelledby="contact-title">
+            <h2 id="contact-title" class="visually-hidden">Contact</h2>
+            <p>Contact: example@email.com</p>
+            <p>&copy; 2026 My Semantic Website</p>
+        </footer>
+
+    </body>
+</html>

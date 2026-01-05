@@ -1,0 +1,112 @@
+
+<!doctype html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8" />
+    <title>JS Variables & Control-Flow Demo</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <style>
+            body { font-family: system-ui, sans-serif; margin: 2rem; line-height: 1.5; }
+            h1 { margin-bottom: 0.5rem; }
+            code, pre { background: #f6f8fa; padding: 0.25rem 0.4rem; border-radius: 6px; }
+            .card { border: 1px solid #e5e7eb; border-radius: 12px; padding: 1rem; margin: 1rem 0; }
+            .ok { color: #0f766e; } .warn { color: #b45309; } .err { color: #b91c1c; }
+        </style>
+    </head>
+    <body>
+        <h1>JavaScript Variables & Control-Flow</h1>
+        <p>Open DevTools Console to see logs. Key results also appear below.</p>
+
+        <div id="output" class="card"></div>
+
+        <script>
+            // ===== Variables =====
+            var legacyCount = 1;
+            let items = ['alpha', 'beta'];
+            const PI = 3.14159;
+            items.push('gamma');
+
+            // ===== Conditionals =====
+            const speed = 72;
+            let speedCategory;
+            if (speed > 100) {
+                speedCategory = 'Too fast!';
+            } else if (speed >= 60 && speed <= 100) {
+                speedCategory = 'Cruising speed';
+            } else {
+                speedCategory = 'Below speed limit';
+            }
+            const statusMsg = speed > 90 ? '⚠️ Check speed' : '✅ All good';
+
+            // Log
+            console.log('legacyCount:', legacyCount);
+            console.log('items:', items);
+            console.log('PI:', PI);
+            console.log('Speed category:', speedCategory);
+            console.log('Status:', statusMsg);
+
+            // ===== Switch =====
+            const role = 'student';
+            let roleMsg;
+
+            switch (role) {
+            case 'admin': 
+                roleMsg = 'Full access'; 
+                break;
+            case 'instructor': 
+                roleMsg = 'Grade & manage'; 
+                break;
+            case 'student': 
+                roleMsg = 'Submit & view'; 
+                break;
+            default: 
+                roleMsg = 'Unknown role';
+            }
+            console.log('Role:', role, '→', roleMsg);
+
+            // ===== Loops =====
+            for (let i = 0; i < items.length; i++) {
+                console.log(`Index ${i}: ${items[i]}`);
+            }
+            for (const item of items) {
+                console.log(`Item via for...of: ${item}`);
+            }
+            let n = 3;
+            while (n > 0) {
+                console.log(`Countdown: ${n}`);
+                n--;
+            }
+
+            // ===== Functions & Error Handling =====
+            function divide(a, b) {
+                if (b === 0) throw new Error('Cannot divide by zero');
+                return a / b;
+            }
+
+            let safeResult, errorMsg;
+            try {
+                safeResult = divide(10, 2);      // 5
+                console.log('10 / 2 =', safeResult);
+                divide(10, 0);                   // throws
+            } catch (err) {
+                errorMsg = err.message;
+                console.error('Error:', errorMsg);
+            }
+
+            // ===== Display to DOM =====
+            const el = document.getElementById('output');
+            el.innerHTML = `
+            <h2>Results</h2>
+            <ul>
+                <li><strong>Items:</strong> <code>${items.join(', ')}</code></li>
+                <li><strong>PI:</strong> <code>${PI}</code></li>
+                <li><strong>Speed category:</strong> <span class="${speed > 100 ? 'warn' : 'ok'}">${speedCategory}</span></li>
+                <li><strong>Status:</strong> <span class="${statusMsg.includes('⚠️') ? 'warn' : 'ok'}">${statusMsg}</span></li>
+                <li><strong>Role:</strong> <code>${role}</code> → <span>${roleMsg}</span></li>
+                <li><strong>Safe divide (10/2):</strong> <code>${safeResult}</code></li>
+                <li><strong>Error message:</strong> <span class="err">${errorMsg ?? 'None'}</span></li>
+            </ul>
+            `;
+        </script>
+    </body>
+</html>

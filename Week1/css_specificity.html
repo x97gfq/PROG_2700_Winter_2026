@@ -1,0 +1,161 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>CSS Specificity Demo</title>
+        <style>
+            /* Base reset-ish */
+            * { box-sizing: border-box; }                 /* (0,0,0,0) */
+
+            /* Page landmarks */
+            body { font-family: system-ui, sans-serif; line-height: 1.5; margin: 0; }
+            header, main, footer { padding: 1rem; }
+            header { background: #0f172a; color: white; }
+            footer { background: #f1f5f9; }
+
+            /* Navigation (showing low specificity usage) */
+            nav ul { list-style: none; padding: 0; margin: 0; display: flex; gap: 1rem; }
+            nav a { color: #93c5fd; text-decoration: none; }
+            nav a:hover { text-decoration: underline; }
+
+            /* 1) Element vs Class vs ID */
+            p { color: #1f2937; }                         /* (0,0,0,1) */
+            .highlight { color: #2563eb; }                /* (0,0,1,0) */
+            #intro { color: #16a34a; }                    /* (0,1,0,0) */
+
+            /* 2) Combining selectors (sum of parts) */
+            article p { color: #6b7280; }                 /* (0,0,0,2) */
+            article .highlight { color: #f59e0b; }        /* (0,0,2,1) */
+            #blog p.highlight { color: #7c3aed; }         /* (0,1,1,1) */
+
+            /* 3) !important beats normal specificity */
+            .callout { background: #fde68a; padding: 0.5rem; }
+            .callout p { color: #111827 !important; }     /* important (0,0,0,2) */
+
+            /* 4) Source order tiebreaker */
+            .button { background: #3b82f6; color: white; padding: 0.5rem 1rem; border-radius: 0.5rem; }
+            .button { background: #10b981; }              /* later wins (same specificity) */
+
+            /* 5) Attribute & pseudo-class specificity */
+            input[type="text"] { border: 2px solid #cbd5e1; padding: 0.5rem; }  /* (0,0,1,1) */
+            input:focus { border-color: #1d4ed8; outline: none; }               /* (0,0,1,1) */
+
+            /* 6) Pseudo-elements vs elements */
+            p::first-line { font-weight: 600; }           /* (0,0,0,2) */
+
+            /* 7) :not(), :is(), :where() special cases */
+            /* :not() adds the specificity of its argument only */
+            div:not(.hidden) { border: 1px dashed #e5e7eb; padding: 0.5rem; }   /* (0,0,1,1) */
+
+            /* :is() takes the most specific among its arguments that match */
+            :is(#main, .card, article) { margin-block: 1rem; }                  /* could be (0,1,0,0) if #main matches */
+
+            /* :where() always has zero specificity */
+            :where(.container) { max-width: 900px; margin: 0 auto; padding: 1rem; } /* (0,0,0,0) */
+
+            /* Utility for visually hidden heading in footer */
+            .visually-hidden {
+            position: absolute !important;
+            height: 1px; width: 1px;
+            overflow: hidden; clip: rect(1px, 1px, 1px, 1px);
+            white-space: nowrap; border: 0; padding: 0; margin: -1px;
+            }
+
+            /* Simple layout */
+            .grid { display: grid; grid-template-columns: 2fr 1fr; gap: 1rem; }
+            aside { background: #f8fafc; padding: 1rem; border-radius: 0.5rem; }
+            article { background: #fff; padding: 1rem; border: 1px solid #e5e7eb; border-radius: 0.5rem; }
+        </style>
+    </head>
+        <body>
+
+        <header>
+            <h1>CSS Specificity Demo</h1>
+            <nav aria-label="Primary">
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#articles">Articles</a></li>
+                <li><a href="#playground">Playground</a></li>
+            </ul>
+            </nav>
+        </header>
+
+        <main id="main" class="container">
+            <section id="about" aria-labelledby="about-title">
+            <h2 id="about-title">About This Page</h2>
+            <p id="intro" class="highlight">
+                This paragraph matches element, class, and ID selectors. ID wins → green.
+            </p>
+            <p>
+                The <code>.highlight</code> class is blue on non-ID paragraphs, but overridden by an ID.
+            </p>
+            <p>
+                Try selecting this paragraph’s <strong>first line</strong>—it’s bold via <code>::first-line</code>.
+            </p>
+            </section>
+
+            <section id="articles" aria-labelledby="articles-title" class="grid card">
+            <h2 id="articles-title">Articles</h2>
+
+            <article id="blog">
+                <header>
+                    <h3>Specificity in Context</h3>
+                    <p><time datetime="2026-01-05">January 5, 2026</time></p>
+                </header>
+                <p class="highlight">
+                    Inside <code>#blog</code>, <code>#blog p.highlight</code> → purple (ID + class + element).
+                </p>
+                <p>
+                    In other articles, <code>article .highlight</code> → orange (class + element).
+                </p>
+                <footer>
+                    <button class="button">Source Order Wins</button>
+                </footer>
+            </article>
+
+            <article>
+                <header>
+                    <h3>Important vs Inline</h3>
+                    <p><time datetime="2026-01-04">January 4, 2026</time></p>
+                </header>
+                <div class="callout">
+                    <p style="color: red;">
+                        Inline would usually win, but <code>.callout p { color: ... !important }</code> overrides inline.
+                    </p>
+                </div>
+                <p class="highlight">
+                    This highlight is orange due to <code>article .highlight</code> in this context.
+                </p>
+            </article>
+
+            <aside aria-labelledby="sidebar-title">
+                <h2 id="sidebar-title">Sidebar</h2>
+                <div class="play">
+                    <p>Toggle class <code>.hidden</code> on this parent to see <code>div:not(.hidden)</code> effect.</p>
+                    <label>
+                        Your name:
+                        <input type="text" placeholder="Focus me to see border change" />
+                    </label>
+                </div>
+            </aside>
+            </section>
+
+            <section id="playground" aria-labelledby="playground-title">
+                <h2 id="playground-title">Playground</h2>
+                <p>
+                    Practice: add, remove, and reorder rules in the embedded CSS to observe specificity changes.
+                </p>
+                <p>
+                    Tip: Prefer low-specificity classes for maintainable styles, and avoid chaining too many selectors.
+                </p>
+            </section>
+        </main>
+
+        <footer aria-labelledby="contact-title">
+            <h2 id="contact-title" class="visually-hidden">Contact</h2>
+            <p>&copy; 2026 Specificity Demo</p>
+        </footer>
+    </body>
+</html>
