@@ -1,0 +1,30 @@
+body {
+    background-color: lightblue;
+    font-family: Arial, sans-serif;
+}
+
+.card {
+    background-color: white;
+    padding: 20px;
+    margin: 50px auto;
+    width: 300px;
+    border-radius: 10px;
+}
+
+.title {
+    color: darkblue;
+}
+
+.input-field {
+    width: 100%;
+    padding: 8px;
+    margin: 10px 0;
+}
+
+.btn-primary {
+    background-color: darkblue;
+    color: white;
+    padding: 10px;
+    border: none;
+    width: 100%;
+}
