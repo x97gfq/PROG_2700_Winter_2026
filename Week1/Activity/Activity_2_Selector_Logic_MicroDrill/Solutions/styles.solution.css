@@ -1,5 +1,0 @@
-
-/* Solution: Demonstrate attribute selector + improved focus */
-input[type=email] { outline: 2px dashed #22d3ee; }
-input:focus { outline: 2px solid #2563eb; outline-offset: 2px; }
-.error { border-color: #ef4444 !important; background: #1f1f1f; }
