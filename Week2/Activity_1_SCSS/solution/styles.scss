@@ -1,0 +1,175 @@
+/*
+================================================================================
+ACTIVITY 1 SOLUTION: SCSS Conversion
+================================================================================
+This is the solution file showing how to convert the original CSS to SCSS
+using variables, nesting, and mixins.
+================================================================================
+*/
+
+// ==============================================================================
+// SCSS VARIABLES
+// ==============================================================================
+// Define reusable values as variables - makes it easy to maintain consistency
+// and update values throughout the stylesheet
+
+// Color Variables
+$background-color: lightblue; // Page background color
+$card-background: white; // Card background color
+$primary-color: darkblue; // Primary brand color (used for text and button)
+$button-text-color: white; // Button text color
+
+// Spacing Variables
+$card-padding: 20px; // Padding inside the card
+$card-margin: 50px; // Top/bottom margin for card
+$card-width: 300px; // Fixed width of card
+$border-radius: 10px; // Rounded corners
+$input-padding: 8px; // Padding inside input field
+$input-margin: 10px; // Top/bottom margin for input
+$button-padding: 10px; // Padding inside button
+
+// Typography Variables
+$font-family: Arial, sans-serif; // Main font family for the page
+
+
+// ==============================================================================
+// MIXINS
+// ==============================================================================
+// Mixins allow us to create reusable blocks of CSS that can accept parameters
+
+// Button mixin - creates consistent button styles
+// Parameters allow customization while maintaining consistency
+@mixin button-style($bg-color, $text-color, $padding) {
+    background-color: $bg-color;
+    color: $text-color;
+    padding: $padding;
+    border: none;
+    width: 100%;
+    cursor: pointer;
+    border-radius: $border-radius / 2; // Use half the card radius for buttons
+    transition: background-color 0.3s ease;
+
+    // Hover state - darken the background slightly
+    &:hover {
+        background-color: darken($bg-color, 10%);
+    }
+
+    // Active state - scale down slightly for click feedback
+    &:active {
+        transform: scale(0.98);
+    }
+}
+
+
+// ==============================================================================
+// BASE STYLES
+// ==============================================================================
+
+body {
+    background-color: $background-color;
+    font-family: $font-family;
+    margin: 0;
+    padding: 0;
+}
+
+
+// ==============================================================================
+// CARD COMPONENT
+// ==============================================================================
+// Using nesting to organize related selectors hierarchically
+// This makes it clear which elements belong to the card
+
+.card {
+    background-color: $card-background;
+    padding: $card-padding;
+    margin: $card-margin auto; // Auto for horizontal centering
+    width: $card-width;
+    border-radius: $border-radius;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // Add subtle shadow for depth
+
+    // Nested selector: .card .title
+    // The & represents the parent (.card)
+    .title {
+        color: $primary-color;
+        margin-top: 0;
+        margin-bottom: 20px;
+        text-align: center;
+        font-size: 24px;
+    }
+
+    // Nested selector: .card form
+    form {
+
+        // Nested selector: .card form .description
+        .description {
+            display: block;
+            color: darken($background-color, 40%); // Darken for better readability
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        // Nested selector: .card form .input-field
+        .input-field {
+            width: 100%;
+            padding: $input-padding;
+            margin: $input-margin 0;
+            border: 2px solid lighten($primary-color, 40%);
+            border-radius: $border-radius / 2;
+            font-family: $font-family;
+            font-size: 16px;
+            box-sizing: border-box; // Include padding and border in width calculation
+
+            // Focus state for accessibility
+            &:focus {
+                outline: none;
+                border-color: $primary-color;
+                box-shadow: 0 0 0 3px rgba($primary-color, 0.1);
+            }
+        }
+
+        // Nested selector: .card form .btn-primary
+        // Using our button mixin
+        .btn-primary {
+            @include button-style($primary-color, $button-text-color, $button-padding);
+            font-size: 16px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    }
+}
+
+
+/*
+================================================================================
+SCSS FEATURES USED IN THIS FILE:
+================================================================================
+
+1. VARIABLES ($background-color, $primary-color, etc.)
+   - Store reusable values
+   - Easy to maintain and update
+   - Ensure consistency across the stylesheet
+
+2. NESTING (.card { .title { } })
+   - Mirrors HTML structure
+   - Keeps related styles together
+   - More readable and organized
+
+3. MIXINS (@mixin button-style)
+   - Reusable blocks of CSS
+   - Accept parameters for customization
+   - Reduce code duplication
+
+4. BUILT-IN FUNCTIONS (darken, lighten, rgba)
+   - Manipulate colors programmatically
+   - Create color variations without manual calculation
+
+5. PARENT SELECTOR (&)
+   - Reference parent selector
+   - Used for pseudo-classes (&:hover, &:focus, &:active)
+
+6. MATH OPERATIONS ($border-radius / 2)
+   - Perform calculations in CSS
+   - Create proportional relationships
+
+================================================================================
+*/

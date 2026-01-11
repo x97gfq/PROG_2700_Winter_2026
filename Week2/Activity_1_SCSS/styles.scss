@@ -1,0 +1,69 @@
+/*
+================================================================================
+ACTIVITY 1: Convert CSS to SCSS
+================================================================================
+TODO: Convert the CSS below into SCSS using modern SCSS features
+
+Your task:
+1. Create SCSS variables for colors, spacing, and other repeated values
+2. Use nesting for related selectors
+3. Create at least one mixin for reusable styles
+4. Add comments explaining your SCSS code
+
+Current CSS (to be converted):
+*/
+
+body {
+    background-color: lightblue;
+    font-family: Arial, sans-serif;
+}
+
+.card {
+    background-color: white;
+    padding: 20px;
+    margin: 50px auto;
+    width: 300px;
+    border-radius: 10px;
+}
+
+.title {
+    color: darkblue;
+}
+
+.input-field {
+    width: 100%;
+    padding: 8px;
+    margin: 10px 0;
+}
+
+.btn-primary {
+    background-color: darkblue;
+    color: white;
+    padding: 10px;
+    border: none;
+    width: 100%;
+}
+
+/*
+================================================================================
+TODO CHECKLIST:
+================================================================================
+[ ] Define SCSS variables for:
+    - Colors (background-color, card background, text colors, button colors)
+    - Spacing values (padding, margin)
+    - Border radius
+    - Font family
+
+[ ] Convert the .card class to use nesting for .title, .input-field inside
+
+[ ] Create a mixin for the button styling
+
+[ ] Use your variables throughout the SCSS
+
+[ ] Add comments explaining your SCSS features
+
+[ ] Compile your SCSS to CSS and test in the browser
+
+HINT: Check the solution/styles.scss file for the completed version!
+================================================================================
+*/

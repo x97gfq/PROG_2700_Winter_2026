@@ -1,0 +1,458 @@
+/*
+================================================================================
+SCSS EXAMPLES - Week 2
+================================================================================
+This file demonstrates the core features of SCSS (Sassy CSS) with practical
+examples and thorough explanations. Each section covers a specific SCSS feature.
+
+To compile this file:
+1. Install "Live Sass Compiler" extension in VS Code
+2. Open this file in VS Code
+3. Click "Watch Sass" in the bottom status bar
+4. Save the file - it will automatically compile to example-styles.css
+================================================================================
+*/
+
+
+/*
+================================================================================
+1. VARIABLES
+================================================================================
+Variables allow you to store values that you want to reuse throughout your
+stylesheet. This makes it easy to maintain consistency and update values
+in one place.
+
+Syntax: $variable-name: value;
+*/
+
+// Color Variables
+// Using variables ensures color consistency across your entire site
+$primary-color: #3498db;        // Main brand color (blue)
+$secondary-color: #2ecc71;      // Accent color (green)
+$danger-color: #e74c3c;         // Error/warning color (red)
+$text-color: #333333;           // Main text color (dark gray)
+$background-color: #f4f4f4;     // Page background (light gray)
+$white: #ffffff;                // Pure white
+
+// Typography Variables
+$font-primary: 'Arial', sans-serif;
+$font-heading: 'Georgia', serif;
+$font-code: 'Courier New', monospace;
+
+// Spacing Variables
+// Using a consistent spacing scale improves visual harmony
+$spacing-xs: 4px;
+$spacing-sm: 8px;
+$spacing-md: 16px;
+$spacing-lg: 24px;
+$spacing-xl: 32px;
+
+// Layout Variables
+$border-radius: 8px;
+$max-width: 1200px;
+$box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+
+/*
+================================================================================
+2. NESTING
+================================================================================
+Nesting allows you to write selectors inside other selectors, following
+the same visual hierarchy as your HTML. This makes your SCSS more readable
+and organized.
+
+Note: Be careful not to nest too deeply (max 3-4 levels) as it can create
+overly specific selectors.
+*/
+
+// Example: Card component with nested selectors
+.card {
+  background-color: $white;
+  border-radius: $border-radius;
+  box-shadow: $box-shadow;
+  padding: $spacing-lg;
+  margin: $spacing-md;
+
+  // Nested selector: .card .card-header
+  .card-header {
+    border-bottom: 2px solid $primary-color;
+    padding-bottom: $spacing-sm;
+    margin-bottom: $spacing-md;
+
+    // Nested selector: .card .card-header h2
+    h2 {
+      color: $primary-color;
+      font-family: $font-heading;
+      margin: 0;
+      font-size: 24px;
+    }
+  }
+
+  // Nested selector: .card .card-body
+  .card-body {
+    font-family: $font-primary;
+    color: $text-color;
+    line-height: 1.6;
+
+    // Nested selector: .card .card-body p
+    p {
+      margin-bottom: $spacing-md;
+
+      // & represents the parent selector (.card .card-body p)
+      // This creates: .card .card-body p:last-child
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  // The & symbol references the parent selector
+  // This creates: .card:hover
+  &:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+    transition: all 0.3s ease;
+  }
+
+  // Modifier class: .card.card-featured
+  &.card-featured {
+    border: 3px solid $secondary-color;
+    background-color: lighten($secondary-color, 45%);
+  }
+}
+
+
+/*
+================================================================================
+3. MIXINS
+================================================================================
+Mixins are reusable blocks of CSS that can accept parameters. Think of them
+as functions that generate CSS code. They're perfect for vendor prefixes,
+common patterns, or any CSS you find yourself repeating.
+
+Syntax:
+@mixin mixin-name($parameter) {
+  // CSS rules
+}
+
+Usage:
+@include mixin-name(value);
+*/
+
+// Mixin without parameters
+// Use this for common reset patterns
+@mixin reset-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+// Mixin with parameters
+// Creates a flexible button with customizable colors
+@mixin button-style($bg-color, $text-color: $white, $padding: $spacing-md) {
+  background-color: $bg-color;
+  color: $text-color;
+  padding: $padding;
+  border: none;
+  border-radius: $border-radius;
+  cursor: pointer;
+  font-family: $font-primary;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: darken($bg-color, 10%);
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+// Mixin for flexbox centering
+@mixin flex-center($direction: row) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: $direction;
+}
+
+// Mixin for responsive breakpoints
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == 'mobile' {
+    @media (max-width: 768px) {
+      @content;
+    }
+  } @else if $breakpoint == 'tablet' {
+    @media (max-width: 1024px) {
+      @content;
+    }
+  } @else if $breakpoint == 'desktop' {
+    @media (min-width: 1025px) {
+      @content;
+    }
+  }
+}
+
+// Using the mixins
+.button-primary {
+  @include button-style($primary-color);
+}
+
+.button-secondary {
+  @include button-style($secondary-color, $white, $spacing-sm);
+}
+
+.button-danger {
+  @include button-style($danger-color);
+}
+
+.navigation {
+  ul {
+    @include reset-list;
+    @include flex-center(row);
+    gap: $spacing-md;
+  }
+}
+
+.hero-section {
+  @include flex-center(column);
+  height: 400px;
+  background-color: $primary-color;
+  color: $white;
+
+  // Using the responsive mixin
+  @include respond-to('mobile') {
+    height: 300px;
+    padding: $spacing-md;
+  }
+}
+
+
+/*
+================================================================================
+4. FUNCTIONS
+================================================================================
+Functions in SCSS allow you to perform calculations and return a value.
+SCSS has many built-in functions (like lighten, darken, rgba), and you
+can also create your own custom functions.
+
+Syntax:
+@function function-name($parameter) {
+  @return value;
+}
+*/
+
+// Custom function to calculate fluid spacing
+// This creates responsive spacing that scales with screen size
+@function fluid-spacing($min, $max, $min-vw: 320px, $max-vw: 1200px) {
+  $factor: calc(($max - $min) / ($max-vw - $min-vw));
+  @return calc(#{$min}px + #{$factor} * (100vw - #{$min-vw}));
+}
+
+// Custom function to convert px to rem
+// Makes it easier to use rem units for better accessibility
+@function px-to-rem($px, $base: 16px) {
+  @return calc($px / $base) * 1rem;
+}
+
+// Custom function to calculate contrast ratio for accessibility
+@function contrast-color($color) {
+  // Calculate relative luminance
+  $r: red($color) / 255;
+  $g: green($color) / 255;
+  $b: blue($color) / 255;
+  
+  $luminance: 0.2126 * $r + 0.7152 * $g + 0.0722 * $b;
+  
+  // Return white or black based on luminance
+  @if $luminance > 0.5 {
+    @return #000000;
+  } @else {
+    @return #ffffff;
+  }
+}
+
+// Using custom functions
+.container {
+  max-width: $max-width;
+  // Using fluid spacing function for responsive margins
+  margin: fluid-spacing(16, 48);
+  padding: px-to-rem(24px);
+}
+
+.badge {
+  background-color: $primary-color;
+  // Automatically choose text color for best contrast
+  color: contrast-color($primary-color);
+  padding: $spacing-xs $spacing-sm;
+  border-radius: 4px;
+  font-size: px-to-rem(14px);
+}
+
+
+/*
+================================================================================
+5. BUILT-IN SCSS FUNCTIONS
+================================================================================
+SCSS provides many powerful built-in functions for manipulating colors,
+numbers, strings, and more.
+*/
+
+// Color manipulation functions
+.demo-colors {
+  // Original color
+  background-color: $primary-color;
+
+  .lighter {
+    // Lighten color by 20%
+    background-color: lighten($primary-color, 20%);
+  }
+
+  .darker {
+    // Darken color by 20%
+    background-color: darken($primary-color, 20%);
+  }
+
+  .saturated {
+    // Increase color saturation by 30%
+    background-color: saturate($primary-color, 30%);
+  }
+
+  .transparent {
+    // Add transparency (alpha channel)
+    background-color: rgba($primary-color, 0.5);
+  }
+
+  .complementary {
+    // Get complementary color (opposite on color wheel)
+    background-color: complement($primary-color);
+  }
+}
+
+// Math functions
+.demo-math {
+  // Round, ceil, floor
+  width: percentage(0.5);           // 50%
+  padding: round(10.6px);           // 11px
+  margin: ceil(10.2px);             // 11px
+  border-width: floor(10.9px);      // 10px
+  
+  // Min/Max
+  font-size: max(16px, 1rem);
+  line-height: min(1.5, 2);
+}
+
+
+/*
+================================================================================
+6. PRACTICAL EXAMPLE: COMPLETE FORM STYLING
+================================================================================
+This section demonstrates how all SCSS features work together in a real-world
+example.
+*/
+
+// Form container
+.form-container {
+  max-width: 500px;
+  margin: $spacing-xl auto;
+  padding: $spacing-lg;
+  background-color: $white;
+  border-radius: $border-radius;
+  box-shadow: $box-shadow;
+
+  h2 {
+    color: $primary-color;
+    font-family: $font-heading;
+    margin-bottom: $spacing-lg;
+    text-align: center;
+  }
+
+  // Form group for each input
+  .form-group {
+    margin-bottom: $spacing-md;
+
+    label {
+      display: block;
+      color: $text-color;
+      font-weight: bold;
+      margin-bottom: $spacing-xs;
+      font-size: px-to-rem(14px);
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: $spacing-sm;
+      border: 2px solid lighten($text-color, 50%);
+      border-radius: $border-radius / 2;
+      font-family: $font-primary;
+      font-size: px-to-rem(16px);
+      transition: border-color 0.3s ease;
+
+      &:focus {
+        outline: none;
+        border-color: $primary-color;
+        box-shadow: 0 0 0 3px rgba($primary-color, 0.1);
+      }
+
+      &::placeholder {
+        color: lighten($text-color, 40%);
+      }
+
+      // Error state
+      &.error {
+        border-color: $danger-color;
+      }
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    // Error message
+    .error-message {
+      color: $danger-color;
+      font-size: px-to-rem(12px);
+      margin-top: $spacing-xs;
+      display: none;
+
+      &.show {
+        display: block;
+      }
+    }
+  }
+
+  // Submit button
+  .submit-button {
+    @include button-style($primary-color);
+    width: 100%;
+    padding: $spacing-md;
+    font-size: px-to-rem(18px);
+    margin-top: $spacing-md;
+  }
+}
+
+
+/*
+================================================================================
+SUMMARY
+================================================================================
+Key SCSS Features Demonstrated:
+
+1. VARIABLES: Store reusable values ($primary-color, $spacing-md, etc.)
+2. NESTING: Write hierarchical selectors that match your HTML structure
+3. MIXINS: Create reusable CSS blocks with @mixin and @include
+4. FUNCTIONS: Perform calculations and return values (@function)
+5. BUILT-IN FUNCTIONS: Use SCSS's powerful color/math functions
+6. PARENT SELECTOR (&): Reference parent selectors for hover, modifier classes
+
+Best Practices:
+- Keep nesting to 3-4 levels maximum
+- Use meaningful variable names
+- Create mixins for repeated patterns
+- Organize your code into logical sections
+- Comment your code thoroughly
+================================================================================
+*/

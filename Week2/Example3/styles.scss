@@ -1,0 +1,98 @@
+/*
+================================================================================
+EXAMPLE 3: SCSS FUNCTIONS
+Functions perform calculations and return a single value.
+Syntax: @function name($param) { @return value; }
+================================================================================
+*/
+
+// A few variables
+$base-font-size: 16px;
+$color-blue: #3b82f6;
+$color-purple: #8b5cf6;
+$color-orange: #f97316;
+
+// Convert pixels to rem
+@function px-to-rem($px-value) {
+    @return calc($px-value / $base-font-size) * 1rem;
+}
+
+// Auto-determine text color based on background
+@function contrast-color($color) {
+    $r: red($color) / 255;
+    $g: green($color) / 255;
+    $b: blue($color) / 255;
+    $luminance: 0.2126 * $r + 0.7152 * $g + 0.0722 * $b;
+
+    @if $luminance >0.5 {
+        @return #000000;
+    }
+
+    @else {
+        @return #ffffff;
+    }
+}
+
+// Lighten color by mixing with white
+@function tint($color, $percentage) {
+    @return mix(white, $color, $percentage);
+}
+
+
+body {
+    margin: 0;
+    padding: px-to-rem(20px);
+    font-family: system-ui, sans-serif;
+    background: #f8fafc;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: px-to-rem(48px);
+
+    h1 {
+        color: $color-blue;
+        font-size: px-to-rem(36px);
+    }
+}
+
+.content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: px-to-rem(24px);
+}
+
+.pricing-card {
+    padding: px-to-rem(32px);
+    border-radius: 12px;
+    text-align: center;
+
+    &.basic {
+        background: $color-blue;
+        color: contrast-color($color-blue);
+
+        .btn {
+            background: tint($color-blue, 20%);
+            color: contrast-color(tint($color-blue, 20%));
+        }
+    }
+
+    &.pro {
+        background: $color-purple;
+        color: contrast-color($color-purple);
+
+        .btn {
+            background: tint($color-purple, 20%);
+        }
+    }
+
+    &.enterprise {
+        background: $color-orange;
+        color: contrast-color($color-orange);
+    }
+}

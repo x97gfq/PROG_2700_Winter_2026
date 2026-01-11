@@ -1,20 +1,37 @@
-// script.js
-// validateForm will be completed by students.
-// Goals:
-// 1) Prevent default submission
-// 2) Check required fields (name, email, trainer)
-// 3) Show helpful messages near fields or via alert()
-function validateForm(e) {
-  e.preventDefault(); // Stop the form from submitting to let us validate first
-  alert('validation goes here'); // TODO: Replace with real checks and messages
 
-  // Example plan:
-  // const name = document.getElementById('name').value.trim();
-  // const email = document.getElementById('email').value.trim();
-  // const trainer = document.getElementById('trainer').value;
-  // if (!name) { /* show message */ }
-  // if (!email) { /* check format with a simple regex */ }
-  // if (!trainer) { /* ensure a selection */ }
+function validateForm(e) {
+  let nameEl = document.getElementById("name");
+  let emailEl = document.getElementById("email");
+  let trainerEl = document.getElementById("trainer");
+
+  let nameValue = (nameEl?.value || '').trim();
+  let emailValue = (emailEl?.value || '').trim();
+  let trainerValue = (trainerEl?.value || '').trim();
+
+  let errors = [];
+
+  if (nameValue.length == 0) {
+    errors.push('You must enter a name');
+  } else if (nameValue.length <= 3) {
+    errors.push('Name must have at least 4 caracters.');
+  }
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[A-Za-z]{2,}$/;
+
+  if (emailValue.length == 0) {
+    errors.push('You must enter an email address.');
+  } else if (!emailRegex.test(emailValue)) {
+    errors.push('It looks like your email address is malformed.')
+  }
+
+  if (trainerValue.length == 0) {
+    errors.push('You must selected a training level.')
+  }
+
+  if (errors.length != 0) {
+    e.preventDefault();
+    alert(errors.join('\n'));
+  }
 }
 
 // Wire up the submit handler after the DOM is ready
