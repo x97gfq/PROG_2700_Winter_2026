@@ -1,0 +1,98 @@
+/*
+================================================================================
+EXAMPLE 1: SCSS VARIABLES
+Variables let you store values and reuse them throughout your stylesheet.
+Syntax: $variable-name: value;
+================================================================================
+*/
+
+// Color Variables
+$primary-color: #3498db;
+$secondary-color: #9b59b6;
+$success-color: #2ecc71;
+$text-color: #333333;
+$background-color: #f5f5f5;
+$white: #ffffff;
+
+// Typography Variables
+$font-family: 'Segoe UI', Tahoma, sans-serif;
+$font-size-large: 24px;
+
+// Spacing Variables
+$spacing-md: 16px;
+$spacing-lg: 24px;
+
+// Layout Variables
+$border-radius: 8px;
+
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: $font-family;
+    background-color: $background-color;
+    color: $text-color;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: $spacing-lg;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: $spacing-lg;
+
+    h1 {
+        font-size: $font-size-large;
+        color: $primary-color;
+    }
+}
+
+.content {
+    display: flex;
+    gap: $spacing-md;
+    flex-wrap: wrap;
+}
+
+.card {
+    flex: 1;
+    min-width: 250px;
+    background-color: $white;
+    padding: $spacing-lg;
+    border-radius: $border-radius;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+    &.primary {
+        border-left: 4px solid $primary-color;
+
+        h2 {
+            color: $primary-color;
+        }
+    }
+
+    &.secondary {
+        border-left: 4px solid $secondary-color;
+
+        h2 {
+            color: $secondary-color;
+        }
+    }
+
+    &.success {
+        border-left: 4px solid $success-color;
+
+        h2 {
+            color: $success-color;
+        }
+    }
+}
+
+.footer {
+    text-align: center;
+    margin-top: $spacing-lg;
+    padding-top: $spacing-lg;
+    border-top: 1px solid lighten($text-color, 60%);
+    color: lighten($text-color, 20%);
+}
