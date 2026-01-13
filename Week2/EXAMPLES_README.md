@@ -96,11 +96,9 @@ Week2/
 └── Activity_1_SCSS/
     ├── README.md
     ├── index.html
-    ├── script.js
-    ├── styles.scss
+    ├── styles.css
     └── solution/
-        ├── styles.scss
-        └── script.js
+        └── styles.scss
 ```
 
 All examples are ready to use for teaching focused SCSS concepts! 🎉
