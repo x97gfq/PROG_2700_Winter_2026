@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Portfolio - CSS Framework Activity</title>
+
+    <!-- 
+        MATERIALIZE CSS FRAMEWORK
+        Materialize is based on Google's Material Design principles
+        It provides beautiful, ready-to-use components with minimal custom CSS needed
+        
+        What you get:
+        - Cards, buttons, forms, navigation - all pre-styled
+        - Responsive grid system
+        - Beautiful animations and transitions
+        - Material Design colors and shadows
+        - Icon library included
+    -->
+
+    <!-- Google Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Materialize CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <style>
+        /* 
+            MINIMAL CUSTOM CSS
+            Materialize handles most styling, we just need a few tweaks
+        */
+        /* using flex for sticky footer */
+        body {
+            display: flex;
+            min-height: 100vh;
+            flex-direction: column;
+        }
+
+        main {
+            flex: 1 0 auto;
+        }
+
+        /* Add some spacing between sections */
+        section {
+            margin-bottom: 3rem;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 
+        MATERIALIZE NAVIGATION BAR
+        nav: creates a navigation bar
+        nav-wrapper: wraps navigation content
+        brand-logo: styles the main heading
+    -->
+    <nav class="teal darken-2">
+        <div class="nav-wrapper container">
+            <a href="#" class="brand-logo">Jane Developer</a>
+            <!-- right: aligns menu to the right -->
+            <ul class="right hide-on-med-and-down">
+                <li><a href="#intro">Introduction</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#subscribe">Subscribe</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <!-- 
+            MATERIALIZE CONTAINER
+            container: centers content and adds responsive padding
+            Similar to other frameworks but with Material Design spacing
+        -->
+        <div class="container">
+
+            <!-- Introduction Section -->
+            <section id="intro" class="section">
+                <h4 class="teal-text">Welcome to My Portfolio</h4>
+                <p class="flow-text">Full-Stack Web Developer & Designer</p>
+                <p>Hi! I'm a passionate web developer with 5 years of experience creating amazing digital experiences.
+                </p>
+                <p>I specialize in modern web technologies and love building user-friendly applications.</p>
+
+                <!-- 
+                    MATERIALIZE BUTTONS
+                    btn: base button class
+                    waves-effect waves-light: adds ripple animation (Material Design)
+                    teal: color class
+                    btn-large: makes button larger
+                -->
+                <a href="#portfolio" class="btn waves-effect waves-light teal btn-large">
+                    View My Work
+                    <!-- Material icon (right-aligned) -->
+                    <i class="material-icons right">work</i>
+                </a>
+                <a href="#" class="btn-flat waves-effect teal-text">
+                    Download Resume
+                    <i class="material-icons right">download</i>
+                </a>
+            </section>
+
+            <!-- Portfolio Section -->
+            <section id="portfolio" class="section">
+                <h4 class="teal-text">Featured Projects</h4>
+                <p>Check out some of my recent work:</p>
+
+                <!-- 
+                    MATERIALIZE ROW/COL GRID
+                    row: creates a flex container
+                    col: creates columns
+                    s12: full width on small screens (12/12 columns)
+                    m6: half width on medium screens (6/12 columns)
+                    l4: one-third width on large screens (4/12 columns)
+                -->
+                <div class="row">
+                    <!-- 
+                        MATERIALIZE CARDS
+                        card: creates a Material Design card
+                        card-content: adds padding
+                        card-title: styles the title
+                        card-action: creates an action area at bottom
+                    -->
+                    <div class="col s12 m6 l4">
+                        <div class="card">
+                            <div class="card-content">
+                                <span class="card-title teal-text">E-Commerce Platform</span>
+                                <p>A full-featured online shopping platform built with React and Node.js.</p>
+                            </div>
+                            <div class="card-action">
+                                <span class="grey-text"><i>React, Node.js, MongoDB</i></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col s12 m6 l4">
+                        <div class="card">
+                            <div class="card-content">
+                                <span class="card-title teal-text">Weather Dashboard</span>
+                                <p>Real-time weather application with interactive maps and forecasts.</p>
+                            </div>
+                            <div class="card-action">
+                                <span class="grey-text"><i>JavaScript, API, CSS</i></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col s12 m6 l4">
+                        <div class="card">
+                            <div class="card-content">
+                                <span class="card-title teal-text">Task Management App</span>
+                                <p>Collaborative task manager with real-time updates and team features.</p>
+                            </div>
+                            <div class="card-action">
+                                <span class="grey-text"><i>Vue.js, Firebase, Tailwind</i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Blog Section -->
+            <section id="blog" class="section">
+                <h4 class="teal-text">Latest Blog Posts</h4>
+
+                <!-- Two-column layout for blog posts -->
+                <div class="row">
+                    <div class="col s12 m6">
+                        <!-- Horizontal card variation -->
+                        <div class="card horizontal">
+                            <div class="card-stacked">
+                                <div class="card-content">
+                                    <span class="card-title">Getting Started with CSS Frameworks</span>
+                                    <p>Learn how to choose and implement the right CSS framework for your project.</p>
+                                    <p class="grey-text"><small>Posted: January 10, 2026</small></p>
+                                </div>
+                                <div class="card-action">
+                                    <a href="#" class="teal-text">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col s12 m6">
+                        <div class="card horizontal">
+                            <div class="card-stacked">
+                                <div class="card-content">
+                                    <span class="card-title">10 JavaScript Tips for Beginners</span>
+                                    <p>Essential JavaScript concepts every new developer should know.</p>
+                                    <p class="grey-text"><small>Posted: January 5, 2026</small></p>
+                                </div>
+                                <div class="card-action">
+                                    <a href="#" class="teal-text">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Subscribe Section -->
+            <section id="subscribe" class="section">
+                <h4 class="teal-text">Stay Updated</h4>
+                <p>Subscribe to my newsletter for web development tips and updates!</p>
+
+                <!-- Form inside a card for nice presentation -->
+                <div class="card">
+                    <div class="card-content">
+                        <!-- 
+                            MATERIALIZE FORMS
+                            Forms in Materialize are beautifully styled
+                            input-field: wrapper for input elements
+                            Materialize uses floating labels by default
+                        -->
+                        <form>
+                            <div class="row">
+                                <!-- Two-column form layout -->
+                                <div class="input-field col s12 m6">
+                                    <!-- Material icon prefix -->
+                                    <i class="material-icons prefix">account_circle</i>
+                                    <input id="fullname" name="fullname" type="text" class="validate" required>
+                                    <!-- Label animates and floats on focus -->
+                                    <label for="fullname">Full Name</label>
+                                </div>
+
+                                <div class="input-field col s12 m6">
+                                    <i class="material-icons prefix">email</i>
+                                    <input id="emailaddress" name="emailaddress" type="email" class="validate" required>
+                                    <label for="emailaddress">Email Address</label>
+                                </div>
+                            </div>
+
+                            <!-- Select dropdown (requires JavaScript initialization) -->
+                            <div class="input-field col s12">
+                                <select id="interests" name="interests">
+                                    <option value="" disabled selected>Choose your option</option>
+                                    <option value="frontend">Frontend Development</option>
+                                    <option value="backend">Backend Development</option>
+                                    <option value="design">Web Design</option>
+                                    <option value="all">All Topics</option>
+                                </select>
+                                <label>Areas of Interest</label>
+                            </div>
+
+                            <!-- Checkbox -->
+                            <p>
+                                <label>
+                                    <input type="checkbox" id="terms" name="terms" required />
+                                    <span>I agree to receive email updates</span>
+                                </label>
+                            </p>
+
+                            <!-- Submit button -->
+                            <button class="btn waves-effect waves-light teal" type="submit">
+                                Subscribe Now
+                                <i class="material-icons right">send</i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- 
+        MATERIALIZE FOOTER
+        page-footer: creates a Material Design footer
+    -->
+    <footer class="page-footer teal darken-2">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 center-align">
+                    <h5 class="white-text">Connect with me:</h5>
+                    <a href="#" class="white-text" style="margin: 0 1rem;">LinkedIn</a>
+                    <a href="#" class="white-text" style="margin: 0 1rem;">GitHub</a>
+                    <a href="#" class="white-text" style="margin: 0 1rem;">Twitter</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container center-align">
+                &copy; 2026 Jane Developer. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- 
+        MATERIALIZE JAVASCRIPT
+        Required for interactive components like:
+        - Select dropdowns
+        - Mobile navigation
+        - Modals, tooltips, etc.
+    -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <script>
+        // Initialize select dropdowns
+        document.addEventListener('DOMContentLoaded', function () {
+            // Initialize all select elements
+            var elems = document.querySelectorAll('select');
+            M.FormSelect.init(elems);
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tailwind CSS Example - CSS Framework Demo</title>
+
+    <!-- Tailwind CSS CDN - This loads Tailwind's utility classes -->
+    <!-- Note: The Play CDN is for development only. For production, use the CLI -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-50">
+    <!-- 
+        Tailwind uses utility classes directly in HTML
+        Common patterns:
+        - Spacing: p-4 (padding), m-4 (margin), px-4 (padding left/right), py-4 (padding top/bottom)
+        - Colors: bg-blue-500 (background), text-white (text color)
+        - Layout: flex, grid, container
+    -->
+
+    <!-- max-w-6xl: max width, mx-auto: center horizontally, px-4: padding on sides -->
+    <div class="max-w-6xl mx-auto px-4">
+
+        <!-- Header with Navigation -->
+        <!-- bg-blue-600: blue background, rounded-lg: large border radius, shadow-md: medium shadow -->
+        <header class="bg-blue-600 text-white p-6 mb-8 rounded-lg shadow-md">
+            <!-- text-3xl: large text, font-bold: bold weight, mb-4: margin bottom -->
+            <h1 class="text-3xl font-bold mb-4">Tailwind CSS Example</h1>
+
+            <!-- Navigation -->
+            <!-- flex: flexbox display, space-x-6: horizontal spacing between items -->
+            <nav>
+                <ul class="flex space-x-6">
+                    <!-- hover:text-blue-200: on hover, change text color -->
+                    <li><a href="#home" class="hover:text-blue-200 transition">Home</a></li>
+                    <li><a href="#about" class="hover:text-blue-200 transition">About</a></li>
+                    <li><a href="#services" class="hover:text-blue-200 transition">Services</a></li>
+                    <li><a href="#contact" class="hover:text-blue-200 transition">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <!-- Home Section -->
+            <section id="home" class="mb-12">
+                <!-- text-2xl: text size, mb-4: margin bottom -->
+                <h2 class="text-2xl font-bold mb-4">Home Section</h2>
+                <!-- text-lg: large text, text-gray-700: gray text color -->
+                <p class="text-lg text-gray-700 mb-4">
+                    This page demonstrates Tailwind CSS utility classes. Tailwind is a utility-first framework where you
+                    compose designs using small, single-purpose classes.
+                </p>
+
+                <!-- Tailwind Button -->
+                <!-- bg-green-500: green background, hover:bg-green-600: darker on hover -->
+                <!-- px-6: horizontal padding, py-3: vertical padding, rounded-lg: rounded corners -->
+                <button class="bg-green-500 text-white px-6 py-3 rounded-lg hover:bg-green-600 transition shadow-lg">
+                    Click Me
+                </button>
+            </section>
+
+            <!-- About Section with Card -->
+            <section id="about" class="mb-12">
+                <h2 class="text-2xl font-bold mb-4">About Us</h2>
+
+                <!-- Card using Tailwind utilities -->
+                <!-- bg-white: white background, border: add border, border-gray-200: light gray border -->
+                <div class="bg-white p-6 rounded-lg shadow-md border border-gray-200">
+                    <h3 class="text-xl font-semibold mb-3">Our Mission</h3>
+                    <p class="text-gray-600">
+                        To provide the best learning experience for web development students using modern CSS
+                        frameworks.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Services Section with Grid -->
+            <section id="services" class="mb-12">
+                <h2 class="text-2xl font-bold mb-6">Our Services</h2>
+
+                <!-- Tailwind Grid System -->
+                <!-- grid: CSS grid, grid-cols-1: 1 column on mobile -->
+                <!-- md:grid-cols-3: 3 columns on medium screens and up, gap-6: spacing between grid items -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition">
+                        <h3 class="text-xl font-semibold mb-3">Web Design</h3>
+                        <p class="text-gray-600">Creating beautiful and responsive websites.</p>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition">
+                        <h3 class="text-xl font-semibold mb-3">Web Development</h3>
+                        <p class="text-gray-600">Building robust and scalable web applications.</p>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition">
+                        <h3 class="text-xl font-semibold mb-3">Consulting</h3>
+                        <p class="text-gray-600">Expert advice on web technologies and best practices.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Section with Form -->
+            <section id="contact" class="mb-12">
+                <h2 class="text-2xl font-bold mb-4">Contact Us</h2>
+
+                <!-- Tailwind Form -->
+                <form class="bg-white p-6 rounded-lg shadow-md">
+
+                    <!-- Form field -->
+                    <div class="mb-4">
+                        <!-- block: display block, mb-2: margin bottom -->
+                        <label for="name" class="block text-gray-700 font-medium mb-2">Name:</label>
+                        <!-- w-full: full width, border-gray-300: light gray border -->
+                        <!-- focus:border-blue-500: blue border on focus, focus:ring: add ring on focus -->
+                        <input type="text" id="name" name="name"
+                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:border-blue-500 focus:ring focus:ring-blue-200 transition"
+                            required>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="email" class="block text-gray-700 font-medium mb-2">Email:</label>
+                        <input type="email" id="email" name="email"
+                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:border-blue-500 focus:ring focus:ring-blue-200 transition"
+                            required>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="message" class="block text-gray-700 font-medium mb-2">Message:</label>
+                        <textarea id="message" name="message" rows="4"
+                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:border-blue-500 focus:ring focus:ring-blue-200 transition"
+                            required></textarea>
+                    </div>
+
+                    <button type="submit"
+                        class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition shadow-md">
+                        Submit
+                    </button>
+                </form>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="bg-gray-800 text-white text-center py-6 rounded-lg">
+            <p>&copy; 2026 Tailwind CSS Example. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+
+</html>
