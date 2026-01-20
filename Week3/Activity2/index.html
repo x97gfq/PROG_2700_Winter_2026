@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Timed Click Counter Arena</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <div class="header">
+        <h2>Score: <span id="score">0</span></h2>
+        <h2>Time Left: <span id="timer">30</span>s</h2>
+    </div>
+    <button id="startBtn">Start Game</button>
+    <div id="box" class="hidden"></div>
+    <div id="gameOver" class="hidden">
+        <h1>Game Over!</h1>
+        <p>Final Score: <span id="finalScore">0</span></p>
+        <button id="restartBtn">Play Again</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
