@@ -1,0 +1,24 @@
+/* Minimal styling - mostly using Bootstrap */
+
+body {
+    background-color: #f8f9fa;
+}
+
+.attendee-card {
+    background-color: white;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.attendee-name {
+    font-weight: bold;
+    color: #0d6efd;
+}
+
+.attendee-info {
+    color: #6c757d;
+    font-size: 0.9rem;
+}

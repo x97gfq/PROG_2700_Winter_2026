@@ -1,0 +1,14 @@
+/* Minimal custom styling - mostly using Bootstrap */
+
+body {
+    background-color: #f8f9fa;
+}
+
+.btn-group {
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.table {
+    background-color: white;
+}
