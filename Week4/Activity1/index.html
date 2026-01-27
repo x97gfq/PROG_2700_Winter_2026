@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: #2a5298;
+            color: white;
+            padding: 40px;
+        }
+
+        .game-container {
+            display: flex;
+            justify-content: center;
+            gap: 100px;
+            margin: 50px 0;
+        }
+
+        .card {
+            width: 120px;
+            height: 180px;
+            background: white;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            cursor: pointer;
+        }
+
+        .card.back {
+            background: #f5576c;
+            color: white;
+            font-size: 3em;
+        }
+
+        #result {
+            font-size: 32px;
+            margin-top: 40px;
+        }
+
+        button {
+            background: #f5576c;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>High Card Wins</h1>
+
+    <div class="game-container">
+        <div>
+            <h2>Computer</h2>
+            <div id="computerCard" class="card back">🎴</div>
+        </div>
+
+        <div>
+            <h2>You</h2>
+            <div id="userCard" class="card back">🎴</div>
+        </div>
+    </div>
+
+    <div id="result"></div>
+    <button id="resetBtn" style="display: none;">Play Again</button>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

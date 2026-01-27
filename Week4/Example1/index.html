@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 4 - Array Methods Example</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #34495e;
+            margin-top: 30px;
+        }
+        .output {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 10px 0;
+            font-family: 'Courier New', monospace;
+        }
+        .section {
+            background-color: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <h1>JavaScript Array Methods Demo</h1>
+    <p>Open the browser console (F12) to see detailed output, or view the results below.</p>
+    
+    <div class="section">
+        <h2>Original Data</h2>
+        <div id="original" class="output"></div>
+    </div>
+
+    <div class="section">
+        <h2>forEach() - Iterate over each element</h2>
+        <div id="forEach" class="output"></div>
+    </div>
+
+    <div class="section">
+        <h2>filter() - Get products under $50</h2>
+        <div id="filter" class="output"></div>
+    </div>
+
+    <div class="section">
+        <h2>map() - Extract product names</h2>
+        <div id="map" class="output"></div>
+    </div>
+
+    <div class="section">
+        <h2>reduce() - Calculate total value</h2>
+        <div id="reduce" class="output"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
