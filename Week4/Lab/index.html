@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 04 - Contact Manager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>📇 Contact Manager</h1>
+
+        <!-- Statistics Section -->
+        <div class="stats-container">
+            <div class="stat-card">
+                <h3>Total Contacts</h3>
+                <p id="totalContacts" class="stat-value">0</p>
+            </div>
+            <div class="stat-card">
+                <h3>Unique Email Domains</h3>
+                <p id="uniqueDomains" class="stat-value">0</p>
+            </div>
+        </div>
+
+        <!-- Filter Section -->
+        <div class="filter-section">
+            <label for="searchInput">Search by name:</label>
+            <input type="text" id="searchInput" placeholder="Type to filter contacts...">
+        </div>
+
+        <!-- Add Contact Form -->
+        <div class="add-contact-form">
+            <h2>Add New Contact</h2>
+            <input type="text" id="nameInput" placeholder="Full Name">
+            <input type="email" id="emailInput" placeholder="Email">
+            <input type="tel" id="phoneInput" placeholder="Phone (optional)">
+            <button id="addButton">Add Contact</button>
+        </div>
+
+        <!-- Toast Message Container -->
+        <div id="toast" class="toast"></div>
+
+        <!-- Contacts List -->
+        <div id="contactsList" class="contacts-list">
+            <!-- Contacts will be rendered here -->
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
