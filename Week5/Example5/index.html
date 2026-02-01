@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Example 5: Advanced Error Handling</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>🛡️ Advanced Error Handling</h1>
+        <p class="subtitle">Robust patterns for production-ready code</p>
+
+        <div class="card">
+            <h2>Test Different Error Scenarios</h2>
+            <p>Try these to see different error handling strategies:</p>
+
+            <div class="button-group">
+                <button id="validBtn">Valid Pokemon (pikachu)</button>
+                <button id="invalidBtn">Invalid Pokemon (xyz123)</button>
+                <button id="retryBtn">Retry Failed Request</button>
+            </div>
+        </div>
+
+        <div id="loading" class="loading hidden">
+            <div class="spinner"></div>
+            <p>Loading Pokemon data...</p>
+        </div>
+
+        <div id="error" class="error hidden"></div>
+        <div id="result" class="result hidden"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

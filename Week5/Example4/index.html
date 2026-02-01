@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Example 4: Form Data to JSON</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>📝 Form Data → JSON Workflow</h1>
+        <p class="subtitle">Converting form input to structured JSON data</p>
+
+        <div class="card">
+            <h2>Create a Pokemon Trainer Profile</h2>
+            <form id="trainerForm">
+                <div class="form-group">
+                    <label for="trainerName">Trainer Name:</label>
+                    <input type="text" id="trainerName" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="age">Age:</label>
+                    <input type="number" id="age" min="10" max="99" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="hometown">Hometown:</label>
+                    <select id="hometown" required>
+                        <option value="">Select...</option>
+                        <option value="Pallet Town">Pallet Town</option>
+                        <option value="Cerulean City">Cerulean City</option>
+                        <option value="Lavender Town">Lavender Town</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="favoritePokemon">Favorite Pokemon:</label>
+                    <input type="text" id="favoritePokemon" required>
+                </div>
+
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" id="isChampion">
+                        Pokemon Champion
+                    </label>
+                </div>
+
+                <button type="submit">Create Profile</button>
+            </form>
+        </div>
+
+        <div id="jsonOutput" class="output hidden">
+            <h3>Generated JSON:</h3>
+            <pre id="jsonDisplay"></pre>
+            <p class="info">✓ Ready to send to API!</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

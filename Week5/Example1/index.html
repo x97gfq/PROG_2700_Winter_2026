@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Example 1: JSON Syntax & Structure</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>📋 JSON Syntax & Structure Basics</h1>
+        <p class="subtitle">Understanding the difference between JSON strings and JavaScript objects</p>
+
+        <div class="content-grid">
+            <div class="card">
+                <h2>JavaScript Object Literal</h2>
+                <p class="label">In-memory data (JavaScript)</p>
+                <pre id="jsObjectDisplay"></pre>
+                <p class="info">✓ Can use single quotes<br>✓ Can have functions<br>✓ Keys can be unquoted</p>
+            </div>
+
+            <div class="card">
+                <h2>JSON String</h2>
+                <p class="label">For storage/transmission (Text)</p>
+                <pre id="jsonStringDisplay"></pre>
+                <p class="info">✓ Must use double quotes<br>✓ No functions allowed<br>✓ Keys must be quoted</p>
+            </div>
+        </div>
+
+        <div class="controls">
+            <button id="parseBtn">Parse JSON → Object</button>
+            <button id="stringifyBtn">Stringify Object → JSON</button>
+        </div>
+
+        <div id="output" class="output"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

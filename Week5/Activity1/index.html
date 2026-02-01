@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activity 1: Pokemon Explorer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>🔍 Pokemon Explorer</h1>
+        <p class="subtitle">Search for any Pokemon using the PokeAPI!</p>
+
+        <div class="search-card">
+            <input type="text" id="pokemonInput" placeholder="Enter Pokemon name (e.g., pikachu, charizard)">
+            <button id="searchBtn">Search Pokemon</button>
+        </div>
+
+        <div id="loading" class="loading hidden">Loading Pokemon data...</div>
+        <div id="error" class="error hidden"></div>
+        <div id="result" class="result hidden"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

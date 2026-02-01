@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Example 6: Debugging JSON & APIs</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>🐛 Debugging JSON & APIs</h1>
+        <p class="subtitle">Common errors and how to fix them</p>
+
+        <div class="card">
+            <h2>Common JSON Errors</h2>
+            <p>Click each button to see the error and learn how to debug it:</p>
+
+            <div class="button-group">
+                <button id="trailingCommaBtn">Trailing Comma Error</button>
+                <button id="singleQuoteBtn">Single Quote Error</button>
+                <button id="missingAwaitBtn">Missing Await</button>
+                <button id="wrongEndpointBtn">Wrong API Endpoint</button>
+            </div>
+        </div>
+
+        <div id="output" class="output hidden">
+            <h3>Error Explanation:</h3>
+            <div id="errorInfo"></div>
+            <h4>How to Fix:</h4>
+            <div id="solution"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

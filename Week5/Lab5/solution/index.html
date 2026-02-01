@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 05 - JSON Load, Validate & Persist - Solution</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>🔬 Lab 05: JSON Load, Validate & Persist</h1>
+        <p class="subtitle">Parse, validate, and store Pokemon data</p>
+
+        <div class="controls">
+            <button id="loadBtn">Load Pokemon Data</button>
+            <button id="clearBtn">Clear localStorage</button>
+        </div>
+
+        <div class="stats">
+            <div class="stat-card">
+                <h3 id="validCount">0</h3>
+                <p>Valid Pokemon</p>
+            </div>
+            <div class="stat-card">
+                <h3 id="invalidCount">0</h3>
+                <p>Invalid Items</p>
+            </div>
+        </div>
+
+        <div id="pokemonGrid" class="pokemon-grid"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

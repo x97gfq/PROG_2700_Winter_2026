@@ -1,0 +1,197 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    min-height: 100vh;
+    padding: 2rem;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+h1 {
+    color: white;
+    text-align: center;
+    margin-bottom: 0.5rem;
+    font-size: 2.5rem;
+}
+
+.subtitle {
+    color: rgba(255, 255, 255, 0.9);
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.card {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    margin-bottom: 2rem;
+}
+
+.card h2 {
+    color: #f5576c;
+    margin-bottom: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #2d3436;
+    font-weight: 600;
+}
+
+input {
+    width: 100%;
+    padding: 0.8rem;
+    border: 2px solid #dfe6e9;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+input:focus {
+    outline: none;
+    border-color: #f5576c;
+}
+
+button {
+    width: 100%;
+    background: linear-gradient(135deg, #f5576c, #f093fb);
+    color: white;
+    border: none;
+    padding: 1rem;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(245, 87, 108, 0.4);
+}
+
+.team-limit {
+    text-align: center;
+    margin-top: 1rem;
+    color: #636e72;
+    font-weight: 600;
+}
+
+.loading {
+    text-align: center;
+    color: white;
+    font-size: 1.2rem;
+    padding: 1rem;
+}
+
+.error {
+    background: white;
+    color: #d63031;
+    border: 2px solid #d63031;
+    border-radius: 12px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.team-container {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.team-container h2 {
+    color: #f5576c;
+    margin-bottom: 1.5rem;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.pokemon-card {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.pokemon-card:hover {
+    transform: translateY(-5px);
+}
+
+.remove-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: #d63031;
+    color: white;
+    border: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.pokemon-card img {
+    width: 96px;
+    height: 96px;
+}
+
+.pokemon-card h4 {
+    color: #2d3436;
+    margin: 0.5rem 0;
+    text-transform: capitalize;
+}
+
+.type-badge {
+    display: inline-block;
+    background: #f5576c;
+    color: white;
+    padding: 0.2rem 0.6rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    margin: 0.1rem;
+}
+
+.team-stats {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 1.5rem;
+}
+
+.team-stats h3 {
+    color: #f5576c;
+    margin-bottom: 1rem;
+}
+
+.team-stats p {
+    color: #2d3436;
+    margin: 0.5rem 0;
+    font-weight: 600;
+}
+
+.hidden {
+    display: none;
+}
