@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Example 8 - Simple Login</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Login Form (shown when not logged in) -->
+        <div id="loginSection" class="section">
+            <h1>👋 Welcome!</h1>
+            <p class="subtitle">What's your name?</p>
+
+            <div class="input-group">
+                <input type="text" id="nameInput" placeholder="Enter your name">
+                <button id="loginBtn">Submit</button>
+            </div>
+        </div>
+
+        <!-- Welcome Section (shown when logged in) -->
+        <div id="welcomeSection" class="section hidden">
+            <h1>🎉 Hello, <span id="displayName"></span>!</h1>
+            <p class="subtitle">Welcome back</p>
+
+            <button id="logoutBtn" class="logout-btn">Logout</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

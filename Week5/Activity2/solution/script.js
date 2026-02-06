@@ -59,6 +59,7 @@ async function fetchPokemon(name) {
         const data = await response.json();
         loading.classList.add('hidden');
 
+        //“We project the API response into a DTO (or view model) by mapping it into the shape our app needs.”
         return {
             id: data.id,
             name: data.name,

@@ -2,123 +2,142 @@
 let team = [];
 
 // TODO: Add form submit event listener
-// HINT: document.getElementById('addForm').addEventListener('submit', handleAddPokemon);
-
-
+document.getElementById('addForm').addEventListener('submit', handleAddPokemon);
 
 // TODO: Add Enter key support for input
-// HINT: document.getElementById('pokemonInput').addEventListener('keypress', ...);
-
-
+document.getElementById('pokemonInput').addEventListener('keypress', function(e) {
+    if (e.key === "Enter") { 
+        handleAddPokemon(e); 
+    }
+});
 
 // TODO: Create handleAddPokemon function
 async function handleAddPokemon(e) {
     // TODO: Prevent form submission default behavior
-
+    e.preventDefault();
 
     // TODO: Get input value
-
+    const input = document.getElementById("pokemonInput");
+    const pokemonName = input.value.trim();
 
     // TODO: Validate input (check if empty)
 
+    if (!pokemonName) {
+        showError('Please enter a Pokemon name!');
+        return;
+    }
 
-    // TODO: Check team size limit (max 6)
-    // HINT: if (team.length >= 6) { showError('Team is full!'); return; }
+    if (team.length >= 6) {
+        showError('Team is full! Maximum 6 Pokemon allowed.');
+        return;
+    }
 
+    if (team.some(p => p.name === pokemonName.toLowerCase())) {
+        showError('This Pokemon is already in your team!');
+        return;
+    }
 
-    // TODO: Check for duplicates
-    // HINT: if (team.some(p => p.name === pokemonName)) { ... }
+ 
+    const pokemon = await fetchPokemon(pokemonName);
 
-
-    // TODO: Fetch Pokemon data with error handling
-    // HINT: Use try-catch, show loading, handle errors
-
-
-    // TODO: Add Pokemon to team array
-
-
-    // TODO: Update display
-
-
-    // TODO: Clear input
-
+    if (pokemon) {
+        team.push(pokemon);
+        renderTeam();
+        input.value = '';
+    }
 }
 
-// TODO: Create fetchPokemon function
+// Fetch Pokemon from API with error handling
 async function fetchPokemon(name) {
-    // TODO: Get loading and error elements
+    const loading = document.getElementById('loading');
+    const errorEl = document.getElementById('error');
 
+    loading.classList.remove('hidden');
+    errorEl.classList.add('hidden');
 
-    // TODO: Show loading, hide error
+    try {
+        const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${name.toLowerCase()}`);
 
+        if (!response.ok) {
+            throw new Error(`Pokemon "${name}" not found! Check spelling.`);
+        }
 
-    // TODO: Fetch from API with try-catch
-    // HINT: const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${name.toLowerCase()}`);
+        const data = await response.json();
+        loading.classList.add('hidden');
 
+        //“We project the API response into a DTO (or view model) by mapping it into the shape our app needs.”
+        return {
+            id: data.id,
+            name: data.name,
+            sprite: data.sprites.front_default,
+            types: data.types.map(t => t.type.name),
+            hp: data.stats[0].base_stat,
+            height: data.height
+        };
 
-    // TODO: Check response.ok
-
-
-    // TODO: Parse JSON
-
-
-    // TODO: Return formatted data object
-    // return { id: data.id, name: data.name, sprite: data.sprites.front_default, types: ..., hp: ... };
-
+    } catch (err) {
+        loading.classList.add('hidden');
+        showError(err.message);
+        return null;
+    }
 }
 
 // TODO: Create renderTeam function
+// Render team display
 function renderTeam() {
-    // TODO: Get team grid element
+    const grid = document.getElementById('teamGrid');
+    grid.innerHTML = '';
 
+    team.forEach((pokemon, index) => {
+        const card = document.createElement('div');
+        card.className = 'pokemon-card';
+        card.innerHTML = `
+            <button class="remove-btn" onclick="removePokemon(${index})">×</button>
+            <img src="${pokemon.sprite}" alt="${pokemon.name}">
+            <h4>${pokemon.name}</h4>
+            ${pokemon.types.map(type => `<span class="type-badge">${type}</span>`).join('')}
+            <p>HP: ${pokemon.hp}</p>
+        `;
+        grid.appendChild(card);
+    });
 
-    // TODO: Clear grid
-
-
-    // TODO: Loop through team and create cards
-    // HINT: team.forEach((pokemon, index) => { ... });
-
-
-    // TODO: Add remove button to each card
-
-
-    // TODO: Update team count
-
-
-    // TODO: Update team stats
-
+    document.getElementById('teamCount').textContent = team.length;
+    updateStats();
 }
 
-// TODO: Create removePokemon function
+// Remove Pokemon from team
 function removePokemon(index) {
-    // TODO: Remove from team array
-
-
-    // TODO: Re-render team
-
+    team.splice(index, 1);
+    renderTeam();
 }
 
-// TODO: Create updateStats function
+
+// Update team statistics
 function updateStats() {
-    // TODO: Calculate total HP
+    const statsDiv = document.getElementById('teamStats');
 
+    if (team.length === 0) {
+        statsDiv.classList.add('hidden');
+        return;
+    }
 
-    // TODO: Calculate average height
+    statsDiv.classList.remove('hidden');
 
+    const totalHp = team.reduce((sum, p) => sum + p.hp, 0);
+    const avgHeight = (team.reduce((sum, p) => sum + p.height, 0) / team.length).toFixed(1);
+    const allTypes = [...new Set(team.flatMap(p => p.types))];
 
-    // TODO: Get all unique types
-
-
-    // TODO: Display stats
-    // HINT: Show stats section if team has Pokemon
-
+    document.getElementById('totalHp').textContent = totalHp;
+    document.getElementById('avgHeight').textContent = avgHeight;
+    document.getElementById('teamTypes').textContent = allTypes.join(', ');
 }
 
-// TODO: Create showError function
+
+// Show error message
 function showError(message) {
-    // TODO: Display error message
+    const errorEl = document.getElementById('error');
+    errorEl.textContent = message;
+    errorEl.classList.remove('hidden');
 
-
-    // TODO: Auto-hide after 3 seconds
-
+    setTimeout(() => errorEl.classList.add('hidden'), 3000);
 }

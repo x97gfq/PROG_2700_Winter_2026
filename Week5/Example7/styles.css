@@ -1,0 +1,155 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 2rem;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+h1 {
+    color: white;
+    text-align: center;
+    margin-bottom: 0.5rem;
+    font-size: 2.5rem;
+}
+
+.subtitle {
+    color: rgba(255, 255, 255, 0.9);
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.input-section {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.input-group {
+    margin-bottom: 1.5rem;
+}
+
+.input-group label {
+    display: block;
+    color: #667eea;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 0.8rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+button {
+    width: 100%;
+    background: #667eea;
+    color: white;
+    border: none;
+    padding: 1rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background: #5568d3;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+.storage-section {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.storage-section h2 {
+    color: #667eea;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.storage-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.storage-item {
+    background: #f8f9fa;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.storage-item:hover {
+    border-color: #667eea;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+}
+
+.storage-item-info {
+    flex: 1;
+}
+
+.storage-item-key {
+    font-weight: 600;
+    color: #667eea;
+    margin-bottom: 0.3rem;
+}
+
+.storage-item-value {
+    color: #636e72;
+    word-break: break-word;
+}
+
+.delete-btn {
+    width: auto;
+    background: #e74c3c;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    margin-left: 1rem;
+}
+
+.delete-btn:hover {
+    background: #c0392b;
+}
+
+.empty-message {
+    text-align: center;
+    color: #b2bec3;
+    padding: 2rem;
+    font-style: italic;
+}

@@ -11,25 +11,16 @@
 <body>
     <div class="container">
         <h1>🔬 Lab 05: JSON Load, Validate & Persist</h1>
-        <p class="subtitle">Parse, validate, and store Pokemon data</p>
+        <p class="subtitle">Fetch Pokemon from API and persist to localStorage</p>
 
         <div class="controls">
-            <button id="loadBtn">Load Pokemon Data</button>
-            <button id="clearBtn">Clear localStorage</button>
-        </div>
-
-        <div class="stats">
-            <div class="stat-card">
-                <h3 id="validCount">0</h3>
-                <p>Valid Pokemon</p>
-            </div>
-            <div class="stat-card">
-                <h3 id="invalidCount">0</h3>
-                <p>Invalid Items</p>
-            </div>
+            <button id="loadApiBtn">Load from API</button>
+            <button id="saveBtn" disabled>Save to localStorage</button>
+            <button id="clearBtn" disabled>Clear localStorage</button>
         </div>
 
         <div id="pokemonGrid" class="pokemon-grid"></div>
+
     </div>
 
     <script src="script.js"></script>
