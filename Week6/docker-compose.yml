@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  prog2700-mongo:
+    image: mongo
+    container_name: prog2700-mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+  prog2700-backend:
+    build: ./backend_docker
+    container_name: prog2700-backend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - prog2700-mongo
+    environment:
+      - MONGODB_URI=mongodb://prog2700-mongo:27017/pokemon
+    volumes:
+      - ./backend_docker:/app
+      - /app/node_modules
+
+volumes:
+  mongo-data:

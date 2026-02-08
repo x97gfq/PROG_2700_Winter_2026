@@ -1,0 +1,137 @@
+{
+    "info": {
+        "name": "Week 6 Pokemon API",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Get All Pokemon",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:3000/pokemon",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000",
+                    "path": [
+                        "pokemon"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Get Pokemon by ID",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:3000/pokemon/:id",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000",
+                    "path": [
+                        "pokemon",
+                        ":id"
+                    ],
+                    "variable": [
+                        {
+                            "key": "id",
+                            "value": "REPLACE_WITH_ID"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Create Pokemon",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"name\": \"Gengar\",\n    \"type\": \"Ghost/Poison\",\n    \"hp\": 60,\n    \"attack\": 65,\n    \"defense\": 60,\n    \"speed\": 110\n}"
+                },
+                "url": {
+                    "raw": "http://localhost:3000/pokemon",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000",
+                    "path": [
+                        "pokemon"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Update Pokemon",
+            "request": {
+                "method": "PUT",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"name\": \"Gengar (Mega)\",\n    \"type\": \"Ghost/Poison\",\n    \"hp\": 60,\n    \"attack\": 170,\n    \"defense\": 80,\n    \"speed\": 130\n}"
+                },
+                "url": {
+                    "raw": "http://localhost:3000/pokemon/:id",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000",
+                    "path": [
+                        "pokemon",
+                        ":id"
+                    ],
+                    "variable": [
+                        {
+                            "key": "id",
+                            "value": "REPLACE_WITH_ID"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Delete Pokemon",
+            "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:3000/pokemon/:id",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000",
+                    "path": [
+                        "pokemon",
+                        ":id"
+                    ],
+                    "variable": [
+                        {
+                            "key": "id",
+                            "value": "REPLACE_WITH_ID"
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}
