@@ -44,6 +44,7 @@ mongoose.connect(MONGO_URI, {
  * Keeping it under 6 properties as requested.
  */
 const pokemonSchema = new mongoose.Schema({
+    id: { type: Number, required: true, unique: true },
     name: String,
     type: String,
     hp: Number,
@@ -64,11 +65,11 @@ async function seedDatabase() {
         const count = await Pokemon.countDocuments();
         if (count === 0) {
             const initialData = [
-                { name: 'Bulbasaur', type: 'Grass/Poison', hp: 45, attack: 49, defense: 49, speed: 45 },
-                { name: 'Charmander', type: 'Fire', hp: 39, attack: 52, defense: 43, speed: 65 },
-                { name: 'Squirtle', type: 'Water', hp: 44, attack: 48, defense: 65, speed: 43 },
-                { name: 'Pikachu', type: 'Electric', hp: 35, attack: 55, defense: 40, speed: 90 },
-                { name: 'Jigglypuff', type: 'Normal/Fairy', hp: 115, attack: 45, defense: 20, speed: 20 }
+                { id: 1, name: 'Bulbasaur', type: 'Grass/Poison', hp: 45, attack: 49, defense: 49, speed: 45 },
+                { id: 2, name: 'Charmander', type: 'Fire', hp: 39, attack: 52, defense: 43, speed: 65 },
+                { id: 3, name: 'Squirtle', type: 'Water', hp: 44, attack: 48, defense: 65, speed: 43 },
+                { id: 4, name: 'Pikachu', type: 'Electric', hp: 35, attack: 55, defense: 40, speed: 90 },
+                { id: 5, name: 'Jigglypuff', type: 'Normal/Fairy', hp: 115, attack: 45, defense: 20, speed: 20 }
             ];
             await Pokemon.insertMany(initialData);
             console.log('Database seeded with initial Pokemon data.');
@@ -182,7 +183,8 @@ app.get('/pokemon', async (req, res) => {
  */
 app.get('/pokemon/:id', async (req, res) => {
     try {
-        const pokemon = await Pokemon.findById(req.params.id);
+        // Find by custom 'id' field, not '_id'
+        const pokemon = await Pokemon.findOne({ id: parseInt(req.params.id) });
         if (!pokemon) return res.status(404).json({ message: 'Pokemon not found' });
         res.json(pokemon);
     } catch (err) {
