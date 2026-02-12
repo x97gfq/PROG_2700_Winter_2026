@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Example 2 - jQuery Animations</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>jQuery Animations</h1>
+        <p class="subtitle">Bringing elements to life with smooth animations</p>
+
+        <!-- Basic Animations -->
+        <section class="demo-section">
+            <h2>Basic Show/Hide Animations</h2>
+            <div class="controls">
+                <button class="btn btn-primary" id="fadeToggle">Fade Toggle</button>
+                <button class="btn btn-success" id="slideToggle">Slide Toggle</button>
+                <button class="btn btn-info" id="showHide">Show/Hide</button>
+            </div>
+            <div class="animation-box" id="box1">
+                <p>Watch me animate!</p>
+            </div>
+        </section>
+
+        <!-- Custom Animations -->
+        <section class="demo-section">
+            <h2>Custom Animations</h2>
+            <div class="controls">
+                <button class="btn btn-primary" id="moveRight">Move Right</button>
+                <button class="btn btn-success" id="grow">Grow</button>
+                <button class="btn btn-warning" id="spin">Spin & Scale</button>
+                <button class="btn btn-danger" id="reset">Reset</button>
+            </div>
+            <div class="animation-box" id="box2">
+                <p>Custom Animations</p>
+            </div>
+        </section>
+
+        <!-- Chained Animations -->
+        <section class="demo-section">
+            <h2>Chained Animations</h2>
+            <div class="controls">
+                <button class="btn btn-primary" id="chainAnimation">Start Chain</button>
+            </div>
+            <div class="animation-box" id="box3">
+                <p>Chained Effects</p>
+            </div>
+        </section>
+
+        <!-- Multiple Elements -->
+        <section class="demo-section">
+            <h2>Multiple Element Animations</h2>
+            <div class="controls">
+                <button class="btn btn-primary" id="animateAll">Animate All</button>
+                <button class="btn btn-success" id="staggered">Staggered Animation</button>
+            </div>
+            <div class="multi-boxes">
+                <div class="small-box">1</div>
+                <div class="small-box">2</div>
+                <div class="small-box">3</div>
+                <div class="small-box">4</div>
+                <div class="small-box">5</div>
+            </div>
+        </section>
+
+        <!-- Easing Demonstrations -->
+        <section class="demo-section">
+            <h2>Easing Functions</h2>
+            <div class="controls">
+                <button class="btn btn-primary" id="easeLinear">Linear</button>
+                <button class="btn btn-success" id="easeSwing">Swing</button>
+            </div>
+            <div class="race-track">
+                <div class="racer" id="racer1">Linear</div>
+                <div class="racer" id="racer2">Swing</div>
+            </div>
+        </section>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

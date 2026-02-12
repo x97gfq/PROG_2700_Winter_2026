@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Example 1 - jQuery UI Basics</title>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>jQuery UI Basics</h1>
+        <p class="subtitle">Exploring interactive UI components</p>
+
+        <!-- Accordion Section -->
+        <section class="demo-section">
+            <h2>Accordion Widget</h2>
+            <div id="accordion">
+                <h3>What is jQuery UI?</h3>
+                <div>
+                    <p>jQuery UI is a curated set of user interface interactions, effects, widgets, and themes built on
+                        top of jQuery.</p>
+                </div>
+                <h3>Why use jQuery UI?</h3>
+                <div>
+                    <p>It provides ready-to-use widgets that are accessible, themeable, and easy to implement in your
+                        projects.</p>
+                </div>
+                <h3>Common Use Cases</h3>
+                <div>
+                    <p>Date pickers, drag and drop, sortable lists, dialogs, and much more!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Datepicker Section -->
+        <section class="demo-section">
+            <h2>Datepicker Widget</h2>
+            <label for="datepicker">Select a date:</label>
+            <input type="text" id="datepicker" placeholder="Click to select a date">
+        </section>
+
+        <!-- Dialog Section -->
+        <section class="demo-section">
+            <h2>Dialog Widget</h2>
+            <button id="open-dialog">Open Dialog</button>
+            <div id="dialog" title="Welcome!">
+                <p>This is a jQuery UI dialog box. It can be dragged, resized, and closed.</p>
+            </div>
+        </section>
+
+        <!-- Tabs Section -->
+        <section class="demo-section">
+            <h2>Tabs Widget</h2>
+            <div id="tabs">
+                <ul>
+                    <li><a href="#tabs-1">Tab 1</a></li>
+                    <li><a href="#tabs-2">Tab 2</a></li>
+                    <li><a href="#tabs-3">Tab 3</a></li>
+                </ul>
+                <div id="tabs-1">
+                    <p>Content for the first tab. Tabs help organize content into separate views.</p>
+                </div>
+                <div id="tabs-2">
+                    <p>Content for the second tab. Users can switch between tabs easily.</p>
+                </div>
+                <div id="tabs-3">
+                    <p>Content for the third tab. This keeps the interface clean and organized.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slider Section -->
+        <section class="demo-section">
+            <h2>Slider Widget</h2>
+            <label for="slider-value">Volume: <span id="slider-value">50</span>%</label>
+            <div id="slider"></div>
+        </section>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

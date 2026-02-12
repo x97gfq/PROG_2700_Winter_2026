@@ -1,0 +1,181 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    color: #667eea;
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 2.5em;
+}
+
+.subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 40px;
+    font-style: italic;
+}
+
+.demo-section {
+    margin-bottom: 40px;
+    padding: 25px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border-left: 4px solid #667eea;
+}
+
+.demo-section h2 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+}
+
+/* Datepicker Styles */
+#datepicker {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    margin-top: 10px;
+    transition: border-color 0.3s;
+}
+
+#datepicker:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+label {
+    display: block;
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 8px;
+}
+
+/* Dialog Styles */
+#open-dialog {
+    background: #667eea;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+#open-dialog:hover {
+    background: #5568d3;
+    transform: translateY(-2px);
+}
+
+#open-dialog:active {
+    transform: translateY(0);
+}
+
+/* Slider Styles */
+#slider {
+    margin-top: 20px;
+}
+
+#slider-value {
+    color: #667eea;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+/* Accordion Customization */
+#accordion {
+    border: none;
+}
+
+#accordion h3 {
+    background: #667eea;
+    color: white;
+    border: none;
+    margin-bottom: 2px;
+}
+
+#accordion .ui-accordion-header:hover {
+    background: #5568d3;
+}
+
+#accordion .ui-accordion-content {
+    background: white;
+    border: 1px solid #ddd;
+    border-top: none;
+}
+
+/* Tabs Customization */
+#tabs {
+    border: none;
+}
+
+#tabs .ui-tabs-nav {
+    background: #667eea;
+    border: none;
+    border-radius: 6px 6px 0 0;
+}
+
+#tabs .ui-tabs-nav li {
+    border: none;
+    margin: 0 2px 0 0;
+}
+
+#tabs .ui-tabs-nav li a {
+    color: white;
+    padding: 12px 20px;
+}
+
+#tabs .ui-tabs-nav li.ui-tabs-active a {
+    background: white;
+    color: #667eea;
+}
+
+#tabs .ui-tabs-panel {
+    background: white;
+    border: 1px solid #ddd;
+    border-top: none;
+    padding: 20px;
+}
+
+/* Dialog Customization */
+.ui-dialog {
+    border-radius: 8px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.ui-dialog-titlebar {
+    background: #667eea;
+    color: white;
+    border: none;
+    border-radius: 8px 8px 0 0;
+}
+
+.ui-dialog-titlebar-close {
+    background: transparent;
+    border: none;
+}
+
+.ui-dialog-titlebar-close:hover {
+    background: rgba(255, 255, 255, 0.2);
+}

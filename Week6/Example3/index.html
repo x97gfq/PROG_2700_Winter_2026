@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Example 3 - Interactive Task Manager</title>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-tasks"></i> Interactive Task Manager</h1>
+            <p class="subtitle">Combining jQuery UI & Animations</p>
+        </header>
+
+        <!-- Control Panel -->
+        <section class="control-panel">
+            <button id="add-task-btn" class="btn btn-primary">
+                <i class="fas fa-plus"></i> Add New Task
+            </button>
+            <button id="clear-completed-btn" class="btn btn-danger">
+                <i class="fas fa-trash"></i> Clear Completed
+            </button>
+            <div class="filter-controls">
+                <label for="priority-filter">Filter by Priority:</label>
+                <select id="priority-filter">
+                    <option value="all">All Tasks</option>
+                    <option value="high">High Priority</option>
+                    <option value="medium">Medium Priority</option>
+                    <option value="low">Low Priority</option>
+                </select>
+            </div>
+        </section>
+
+        <!-- Statistics Panel -->
+        <section class="stats-panel">
+            <div class="stat-card">
+                <div class="stat-icon"><i class="fas fa-list"></i></div>
+                <div class="stat-info">
+                    <div class="stat-value" id="total-tasks">0</div>
+                    <div class="stat-label">Total Tasks</div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon"><i class="fas fa-check-circle"></i></div>
+                <div class="stat-info">
+                    <div class="stat-value" id="completed-tasks">0</div>
+                    <div class="stat-label">Completed</div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon"><i class="fas fa-clock"></i></div>
+                <div class="stat-info">
+                    <div class="stat-value" id="pending-tasks">0</div>
+                    <div class="stat-label">Pending</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Task List -->
+        <section class="task-section">
+            <h2><i class="fas fa-clipboard-list"></i> Your Tasks</h2>
+            <div id="task-accordion">
+                <!-- Tasks will be dynamically added here -->
+            </div>
+            <div id="empty-state" class="empty-state">
+                <i class="fas fa-inbox"></i>
+                <p>No tasks yet. Click "Add New Task" to get started!</p>
+            </div>
+        </section>
+
+        <!-- Add Task Dialog -->
+        <div id="add-task-dialog" title="Add New Task">
+            <form id="task-form">
+                <div class="form-group">
+                    <label for="task-title">Task Title:</label>
+                    <input type="text" id="task-title" required placeholder="Enter task title">
+                </div>
+                <div class="form-group">
+                    <label for="task-description">Description:</label>
+                    <textarea id="task-description" rows="3" placeholder="Enter task description"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="task-due-date">Due Date:</label>
+                    <input type="text" id="task-due-date" placeholder="Select due date">
+                </div>
+                <div class="form-group">
+                    <label for="task-priority">Priority:</label>
+                    <select id="task-priority">
+                        <option value="low">Low</option>
+                        <option value="medium" selected>Medium</option>
+                        <option value="high">High</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="task-progress">Progress:</label>
+                    <div id="task-progress"></div>
+                    <div class="progress-value">
+                        <span id="progress-value">0</span>%
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <!-- Confirmation Dialog -->
+        <div id="confirm-dialog" title="Confirm Action">
+            <p><i class="fas fa-exclamation-triangle"></i> Are you sure you want to delete this task?</p>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
