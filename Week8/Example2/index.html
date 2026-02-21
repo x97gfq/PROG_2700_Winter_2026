@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Week 8 - Example 2: Google Maps</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: sans-serif;
+        }
+
+        #map {
+            height: 100vh;
+            width: 100%;
+        }
+
+        #title {
+            position: absolute;
+            top: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: white;
+            padding: 8px 18px;
+            border-radius: 6px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            font-size: 1.1rem;
+            font-weight: bold;
+            z-index: 10;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="title">Americas Countries — RestCountries API</div>
+    <div id="map"></div>
+
+    <!-- Replace YOUR_GOOGLE_MAPS_API_KEY with your actual key -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&callback=initMap" async
+        defer></script>
+    <script src="app.js"></script>
+</body>
+
+</html>

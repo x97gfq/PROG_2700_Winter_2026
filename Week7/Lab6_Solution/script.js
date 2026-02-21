@@ -19,7 +19,7 @@ function fetchRandomQuote() {
         success: function (data) {
             // Create quote object
             const quote = {
-                id: Date.now(), // Use timestamp as unique ID
+                id: quotes.length+1,
                 text: data.content,
                 author: data.author
             };

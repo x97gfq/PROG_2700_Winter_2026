@@ -215,16 +215,24 @@ app.get('/pokemon/:id', async (req, res) => {
  *         description: Some server error
  */
 app.post('/pokemon', async (req, res) => {
-    const pokemon = new Pokemon({
-        name: req.body.name,
-        type: req.body.type,
-        hp: req.body.hp,
-        attack: req.body.attack,
-        defense: req.body.defense,
-        speed: req.body.speed
-    });
-
     try {
+        // BUG FIX (Week 8): The original schema requires a unique numeric 'id'.
+        // We find the highest existing id and increment it so new records don't conflict.
+        // Without this, POST would fail with a duplicate key error on the 'id' field.
+        // Note: In production you'd use a dedicated sequence/counter, but this is fine for learning.
+        const last = await Pokemon.findOne().sort({ id: -1 });
+        const nextId = last ? last.id + 1 : 1;
+
+        const pokemon = new Pokemon({
+            id: nextId,
+            name: req.body.name,
+            type: req.body.type,
+            hp: req.body.hp,
+            attack: req.body.attack,
+            defense: req.body.defense,
+            speed: req.body.speed
+        });
+
         const newPokemon = await pokemon.save();
         res.status(201).json(newPokemon);
     } catch (err) {
@@ -265,7 +273,14 @@ app.post('/pokemon', async (req, res) => {
  */
 app.put('/pokemon/:id', async (req, res) => {
     try {
-        const updatedPokemon = await Pokemon.findByIdAndUpdate(req.params.id, req.body, { new: true });
+        // BUG FIX (Week 8): The original code used findByIdAndUpdate() which searches by
+        // MongoDB's internal _id field. Our route param is the custom numeric 'id' field.
+        // Using findOneAndUpdate() with a filter lets us match on our own 'id' field instead.
+        const updatedPokemon = await Pokemon.findOneAndUpdate(
+            { id: parseInt(req.params.id) },
+            req.body,
+            { new: true }
+        );
         if (!updatedPokemon) return res.status(404).json({ message: 'Pokemon not found' });
         res.json(updatedPokemon);
     } catch (err) {
@@ -294,7 +309,9 @@ app.put('/pokemon/:id', async (req, res) => {
  */
 app.delete('/pokemon/:id', async (req, res) => {
     try {
-        const pokemon = await Pokemon.findByIdAndDelete(req.params.id);
+        // BUG FIX (Week 8): Same issue as PUT — findByIdAndDelete() uses MongoDB's _id.
+        // Switching to findOneAndDelete() so we can filter by our custom numeric 'id' field.
+        const pokemon = await Pokemon.findOneAndDelete({ id: parseInt(req.params.id) });
         if (!pokemon) return res.status(404).json({ message: 'Pokemon not found' });
         res.json({ message: 'Pokemon deleted' });
     } catch (err) {

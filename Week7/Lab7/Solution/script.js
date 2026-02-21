@@ -2,8 +2,9 @@ const API_KEY = "YOUR_OPENAI_API_KEY"; // TODO: Enter your API Key
 const history = document.getElementById('chat-history');
 const input = document.getElementById('user-input');
 const sendBtn = document.getElementById('send-btn');
+let conversationKey = "conversationHistory"; // Local storage key
+let conversation = JSON.parse(localStorage.getItem(conversationKey)) || [];
 
-// Helper function to render messages to the UI
 function renderMessage(role, text) {
     const msgDiv = document.createElement('div');
     msgDiv.className = `message ${role === 'user' ? 'user-message' : 'ai-message'}`;
@@ -12,41 +13,33 @@ function renderMessage(role, text) {
     history.scrollTop = history.scrollHeight;
 }
 
-// TODO: Lab 7 Goal - Maintain a conversation history
-// logic to load conversation from localstorage should go here (Optional)
+// Render existing history on load
+conversation.forEach(msg => renderMessage(msg.role, msg.content));
 
 async function sendMessage() {
+
     const text = input.value.trim();
     if (!text) return;
 
-    // 1. Render user message
     renderMessage('user', text);
     input.value = '';
-
-    // TODO: Update conversation history with user message
+    conversation.push({ role: 'user', content: text });
 
     try {
-        // 2. Send request to OpenAI
-        // Note: This only sends the *current* message, so the AI has no memory.
         const response = await fetch('https://api.openai.com/v1/chat/completions', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${API_KEY}` },
-            body: JSON.stringify({
-                model: "gpt-3.5-turbo",
-                messages: [
-                    { role: "system", content: "You are a rude assistant who gets irritated by dumb questions and conveys your frustration to the user." },
-                    { role: "user", content: text }] // <--- PROBLEM: Only sending current message!
-            })
+            body: JSON.stringify({ model: "gpt-3.5-turbo", messages: conversation }) // Send full history
         });
 
         const data = await response.json();
         const aiText = data.choices[0].message.content;
 
-        // 3. Render AI response
         renderMessage('assistant', aiText);
 
-        // TODO: Update conversation history with AI response
-        // TODO: (Optional) Save updated history to LocalStorage
+        conversation.push({ role: 'assistant', content: aiText });
+
+        localStorage.setItem(conversationKey, JSON.stringify(conversation)); // Update storage
 
     } catch (error) {
         console.error('Error:', error);

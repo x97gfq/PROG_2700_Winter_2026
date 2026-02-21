@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Week 8 - Lab 8</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        header {
+            background: #2c7a4b;
+            color: white;
+            padding: 10px 20px;
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+
+        header span {
+            font-weight: normal;
+            font-size: 0.9rem;
+            opacity: 0.85;
+            margin-left: 12px;
+        }
+
+        #main {
+            display: flex;
+            flex: 1;
+            overflow: hidden;
+        }
+
+        #map {
+            flex: 1;
+        }
+
+        #chart-panel {
+            width: 440px;
+            padding: 20px;
+            background: #f8f8f8;
+            border-left: 1px solid #ddd;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #chart-panel h2 {
+            margin: 0 0 12px;
+            font-size: 1rem;
+            color: #333;
+        }
+
+        #chart-panel canvas {
+            flex: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        Lab 8 — Recent Significant Earthquakes
+        <span>USGS Earthquake Feed (GeoJSON) • Google Maps + Chart.js</span>
+    </header>
+    <div id="main">
+        <div id="map"></div>
+        <div id="chart-panel">
+            <h2>Magnitude by Location</h2>
+            <canvas id="quakeChart"></canvas>
+        </div>
+    </div>
+
+    <!-- Replace YOUR_GOOGLE_MAPS_API_KEY with your actual key -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&callback=initMap" async
+        defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
