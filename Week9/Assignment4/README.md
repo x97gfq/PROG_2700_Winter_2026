@@ -30,18 +30,10 @@ Build a single-page web app that:
 
 ---
 
-## Suggested APIs (no key required)
+## APIs
 
-| API | URL | What's in it |
-|-----|-----|--------------|
-| **RestCountries** | `https://restcountries.com/v3.1/all` | Countries — lat/lng, population, area |
-| **USGS Earthquakes** | `https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/significant_month.geojson` | Real quakes — lat/lng, magnitude |
-| **Open-Meteo** | `https://api.open-meteo.com/v1/forecast` | Weather — temperature, precipitation |
-| **Open Notify** | `http://api.open-notify.org/iss-now.json` | Current ISS location |
-| **Open Library** | `https://openlibrary.org/search.json?q=...` | Books — author, year, subjects |
-| **NASA EONET** | `https://eonet.gsfc.nasa.gov/api/v3/events` | Natural events — lat/lng, category |
-
-You may use a different API with instructor approval.
+Research, find and use one of your own choosing.
+See me if you need some tips.
 
 ---
 

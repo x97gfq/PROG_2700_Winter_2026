@@ -108,29 +108,19 @@ The full Swagger docs are available at [http://localhost:3000/api-docs](http://l
 
 ---
 
-## Part 2: Maps, Charts & Public APIs
+## Lab 8 — Pokemon Trainer Log
 
-After the CRUD recap, the class moves into advanced API consumption:
+**Location:** `Week8/Lab8/`
 
-### [Example 2: Google Maps](Example2/)
-Basic integration with Google Maps using the RestCountries API to place markers for country capitals in the Americas.
+Guided lab where you implement a full CRUD interface (GET, POST, PUT, DELETE) from scratch for the Pokemon API.
 
-### [Example 3: Chart.js](Example3/)
-Using Chart.js to create a weather dashboard (Max/Min temp + Precipitation) using the keyless Open-Meteo API.
+---
 
-### [Example 4: Combined Dashboard](Example4/)
-The "Full Pattern": One `fetch()` call to RestCountries that populates a map and a linked bar chart simultaneously.
-
-### [Activity 2: Map & Chart Tweaks](Activity2/)
-Student activity to modify the Example 4 marker colours and chart data fields.
-
-### [Lab 8: Earthquake Mapper](Lab8/)
-Guided coding lab using the USGS Global Earthquake Feed. Students implement `fetch`, markers, and charts from a blank starter.
-
-### [Assignment 4: Public API project](../Assignment4/)
-Students pick their own API and build a custom Map/Chart dashboard.
-
-### Presentation Slides
+## Presentation Slides
 - [Part 1: CRUD & Modals](slides.pptx)
-- [Part 2: Visualising API Data](slides_part2.pptx)
+
+---
+
+## Next Steps
+Advanced API consumption (Maps, Charts, and Public APIs) has been moved to **Week 9**.
 

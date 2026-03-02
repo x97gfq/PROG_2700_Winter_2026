@@ -1,4 +1,4 @@
-# Lab 8 — Significant Earthquakes: Map + Chart
+# Lab 9 — Significant Earthquakes: Map + Chart
 
 ## Overview
 
