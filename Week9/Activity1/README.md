@@ -1,39 +1,52 @@
-# Activity 2 — Modify the Map + Chart
+# Activity 1 — European Countries Map
 
 ## Overview
 
-You have a working app that fetches countries in the Americas from the [RestCountries API](https://restcountries.com) and displays them on a Google Map with a Chart.js bar chart.
+You have a working app (from Example 1) that fetches countries in the **Americas** from the [RestCountries API](https://restcountries.com) and places markers on a Google Map.
 
-**Your job:** Make two small modifications to the code in `starter/app.js`.
+**Your job:** Modify `starter/app.js` so the map shows **European** countries instead.
 
 ## Prerequisites
 
-Open `starter/index.html` in your browser and confirm the map and chart load correctly. You need a Google Maps API key in the `<script>` tag in `index.html`.
+Open `starter/index.html` in your browser. Confirm the map loads (it will show the Americas with markers). You need the Google Maps API key already in the `<script>` tag.
 
 ## Your Tasks
 
-### TODO 1 — Colour Markers by Population
+### TODO 1 — Change the API Region & Re-Centre the Map
 
-Right now all markers use the default Google Maps pin. Change the marker `icon` so that:
-- Countries with a population **greater than 10,000,000** use a **red** marker
-- All other countries use a **blue** marker
+Right now the app fetches `/region/americas`. Change it to fetch `/region/europe` instead.
 
-**Hint:** Add an `icon` property to the marker options:
+You also need to **re-centre the map** so Europe is visible:
+
 ```js
-icon: 'http://maps.google.com/mapfiles/ms/icons/red-dot.png'
-icon: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png'
+center: { lat: 50, lng: 15 }   // roughly central Europe
+zoom: 3
 ```
 
-### TODO 2 — Switch the Chart to Show Area
+After this step, markers should appear across Europe.
 
-Right now the chart shows the top 10 countries by **population**. Change it to show the top 10 countries by **area (km²)**.
+### TODO 2 — Use the Flag as the Marker Icon
 
-You'll need to:
-1. Sort by `c.area` instead of `c.population`
-2. Use `c.area` as the chart data values
-3. Update the chart dataset `label` to `'Area (km²)'`
-4. Update the tick formatter (the `x` axis) — area values are in km², so format them as `'X.X M km²'`
-5. Update the `<h2>` heading text (you can do this with JS: `document.getElementById('chart-title').textContent = '...'`)
+Instead of the default red pin, display each country's **flag** as the marker on the map.
+
+The API response includes a `flags` object with image URLs. Add an `icon` property to the marker options:
+
+```js
+icon: {
+    url: country.flags.png,
+    scaledSize: new google.maps.Size(30, 20)
+}
+```
+
+`scaledSize` shrinks the flag to 30×20 pixels so they don't overlap.
+
+### TODO 3 (Bonus) — Add the Flag to the InfoWindow Too
+
+Also add the flag image inside the InfoWindow popup that appears on click:
+
+```html
+<img src="..." width="60" style="display:block; margin-bottom:4px">
+```
 
 ## Solution
 

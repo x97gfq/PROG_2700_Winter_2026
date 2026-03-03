@@ -18,21 +18,30 @@ This week focuses on visualising data from public APIs using **Google Maps** and
 
 ## Examples
 
-### [Example 2: Google Maps](Example2/)
+### [Example 1: Google Maps](Example1/)
 Basic integration with Google Maps using the RestCountries API to place markers for country capitals in the Americas.
 
-### [Example 3: Chart.js](Example3/)
+### [Example 2: Chart.js](Example2/)
 Using Chart.js to create a weather dashboard (Max/Min temp + Precipitation) using the keyless Open-Meteo API.
 
-### [Example 4: Combined Dashboard](Example4/)
+### [Example 3: Combined Dashboard](Example3/)
 The "Full Pattern": One `fetch()` call to RestCountries that populates a map and a linked bar chart simultaneously.
 
 ---
 
 ## Activities
 
-### [Activity 2: Map & Chart Tweaks](Activity2/)
-Student activity to modify the Example 4 marker colours and chart data fields.
+### [Activity 1: European Countries Map](Activity1/)
+Modify Example 1 to show European countries instead of the Americas, and add flag images to InfoWindows.
+
+### [Activity 1b: Capital City Weather (Chained Fetches)](Activity1b/)
+Build on Activity 1 — use `Promise.all()` to fetch current weather for each European capital. Teaches chained API calls and the `map` + `Promise.all` pattern.
+
+### [Activity 2: Population Doughnut Chart](Activity2/)
+Use the RestCountries API with Chart.js to create a doughnut chart of South American population distribution.
+
+### [Activity 3: Map & Chart Tweaks](Activity3/)
+Modify the Example 3 combined dashboard — colour markers by population and switch the chart to show area instead.
 
 ---
 

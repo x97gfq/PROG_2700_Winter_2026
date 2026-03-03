@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Activity 1 — Countries Map</title>
+    <title>Activity 1b — Capital City Weather (Solution)</title>
     <style>
         body {
             margin: 0;
@@ -28,15 +28,30 @@
             font-weight: bold;
             z-index: 10;
         }
+
+        #loading {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            z-index: 10;
+            display: none;
+        }
     </style>
 </head>
 
 <body>
-    <div id="title">Countries Map — RestCountries API</div>
+    <div id="title">European Capitals — Current Weather</div>
+    <div id="loading">Fetching weather data...</div>
     <div id="map"></div>
 
-    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&callback=initMap" async
-        defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&callback=initMap"
+        async defer></script>
     <script src="app.js"></script>
 </body>
 
