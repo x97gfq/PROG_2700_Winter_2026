@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Week 10 — Example 4: Lodash + Day.js</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            max-width: 860px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        h1 { color: #222; }
+
+        h2 {
+            color: #222;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 6px;
+            margin-top: 2.5rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+
+        th {
+            background: #2d3748;
+            color: #fff;
+            padding: 10px 12px;
+            text-align: left;
+        }
+
+        td {
+            padding: 9px 12px;
+            border-bottom: 1px solid #eee;
+        }
+
+        tr:hover td { background: #f7f9fc; }
+
+        .badge {
+            display: inline-block;
+            padding: 2px 9px;
+            border-radius: 10px;
+            font-size: 0.78rem;
+            font-weight: 600;
+        }
+
+        .badge-design { background: #fce4ff; color: #8b00b5; }
+        .badge-dev    { background: #dbeafe; color: #1d4ed8; }
+        .badge-data   { background: #dcfce7; color: #15803d; }
+
+        .group-head {
+            font-weight: bold;
+            padding: 8px 12px;
+            background: #f1f5f9;
+            border-radius: 6px;
+            margin: 12px 0 4px;
+        }
+
+        .group-item { padding: 4px 16px; color: #444; }
+
+        .stat-row {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .stat {
+            background: #f7f9fc;
+            border: 1px solid #dce3ec;
+            border-radius: 8px;
+            padding: 14px 20px;
+            flex: 1;
+            min-width: 160px;
+        }
+
+        .stat .num {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #0077cc;
+        }
+
+        .stat .lbl {
+            font-size: 0.82rem;
+            color: #666;
+            margin-top: 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Lodash + Day.js</h1>
+    <div id="root"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/lodash/lodash.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs/dayjs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs/plugin/relativeTime.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>

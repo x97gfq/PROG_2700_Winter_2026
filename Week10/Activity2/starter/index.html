@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Activity 2 — Book Search</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            max-width: 720px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        h1 { color: #222; }
+
+        button {
+            padding: 8px 20px;
+            background: #0077cc;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        button:disabled { opacity: 0.5; cursor: default; }
+
+        #status {
+            font-style: italic;
+            color: #555;
+            min-height: 1.4em;
+            margin-bottom: 1rem;
+        }
+
+        .book {
+            background: #f7f9fc;
+            border: 1px solid #dce3ec;
+            border-radius: 6px;
+            padding: 14px;
+            margin: 8px 0;
+        }
+
+        .book h3 { margin: 0 0 6px; color: #003; }
+        .book p  { margin: 3px 0; color: #555; font-size: 0.9rem; }
+
+        .error { color: #990000; background: #fff0f0; padding: 10px; border-radius: 5px; }
+    </style>
+</head>
+
+<body>
+    <h1>JavaScript Books — Open Library</h1>
+    <button id="btnLoad">Load Books</button>
+    <div id="status"></div>
+    <div id="results"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>

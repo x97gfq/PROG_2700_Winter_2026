@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Week 10 — Example 3: Axios</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            max-width: 780px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        h1 {
+            color: #222;
+        }
+
+        .controls {
+            display: flex;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        button {
+            padding: 8px 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            color: white;
+        }
+
+        .btn-blue   { background: #0077cc; }
+        .btn-green  { background: #007744; }
+        .btn-red    { background: #cc3300; }
+
+        #interceptorLog {
+            background: #1e1e1e;
+            color: #9cdcfe;
+            font-family: monospace;
+            font-size: 0.82rem;
+            padding: 10px 14px;
+            border-radius: 6px;
+            min-height: 52px;
+            margin-bottom: 1.5rem;
+            white-space: pre-wrap;
+        }
+
+        .card {
+            background: #f7f9fc;
+            border: 1px solid #dce3ec;
+            border-radius: 6px;
+            padding: 14px;
+            margin: 8px 0;
+        }
+
+        .card h3 { margin: 0 0 4px; }
+        .card p  { margin: 2px 0; color: #555; font-size: 0.9rem; }
+
+        .row { display: flex; gap: 1rem; }
+        .row .card { flex: 1; }
+
+        .error-box {
+            background: #fff0f0;
+            border: 1px solid #ffcccc;
+            padding: 14px;
+            border-radius: 6px;
+            color: #990000;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Axios — HTTP Requests</h1>
+
+    <div class="controls">
+        <button id="btnUsers"       class="btn-blue">Load Users</button>
+        <button id="btnConcurrent"  class="btn-green">Concurrent Requests</button>
+        <button id="btnFail"        class="btn-red">Trigger 404</button>
+    </div>
+
+    <!-- Interceptors log each request/response here -->
+    <div id="interceptorLog">Interceptor log will appear here…</div>
+
+    <div id="results"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>

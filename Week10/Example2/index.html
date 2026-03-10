@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Week 10 — Example 2: Promises</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        h1 { color: #222; }
+
+        h2 {
+            color: #333;
+            margin-top: 2.5rem;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 6px;
+        }
+
+        .demo {
+            background: #f7f9fc;
+            border: 1px solid #dce3ec;
+            border-radius: 6px;
+            padding: 16px;
+            margin: 1rem 0;
+        }
+
+        .controls {
+            display: flex;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        button {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            color: white;
+        }
+
+        .btn-blue   { background: #0077cc; }
+        .btn-green  { background: #007744; }
+        .btn-orange { background: #cc6600; }
+        .btn-red    { background: #cc3300; }
+
+        .output {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            font-family: monospace;
+            font-size: 0.85rem;
+            padding: 12px;
+            border-radius: 5px;
+            min-height: 40px;
+            white-space: pre-wrap;
+            margin-top: 10px;
+        }
+
+        .ok  { color: #4ec9b0; }
+        .err { color: #f44747; }
+        .dim { color: #6a9955; }
+
+        .card {
+            background: white;
+            border: 1px solid #dce3ec;
+            border-radius: 5px;
+            padding: 10px 14px;
+            margin: 6px 0;
+        }
+
+        .card h3 { margin: 0 0 4px; font-size: 0.95rem; }
+        .card p  { margin: 0; color: #555; font-size: 0.85rem; }
+    </style>
+</head>
+
+<body>
+    <h1>Promises &amp; Promise.all()</h1>
+
+    <!-- ─── Section 1: Creating a Promise ─────────────────────────────────── -->
+    <h2>1 — Creating a Promise</h2>
+    <div class="demo">
+        <div class="controls">
+            <button class="btn-blue"   onclick="demoResolve()">Resolve</button>
+            <button class="btn-red"    onclick="demoReject()">Reject</button>
+            <button class="btn-orange" onclick="demoFinally()">Resolve + finally()</button>
+        </div>
+        <div class="output" id="out1">Click a button…</div>
+    </div>
+
+    <!-- ─── Section 2: .then() chaining ───────────────────────────────────── -->
+    <h2>2 — .then() Chaining</h2>
+    <div class="demo">
+        <div class="controls">
+            <button class="btn-blue" onclick="demoChain()">Run chain</button>
+        </div>
+        <div class="output" id="out2">Click to run…</div>
+    </div>
+
+    <!-- ─── Section 3: Real fetch with .then() ────────────────────────────── -->
+    <h2>3 — Real fetch() with .then()</h2>
+    <div class="demo">
+        <div class="controls">
+            <button class="btn-blue" onclick="demoFetch()">Fetch Users</button>
+        </div>
+        <div class="output" id="out3">Click to fetch…</div>
+        <div id="cards3"></div>
+    </div>
+
+    <!-- ─── Section 4: Promise.all() ──────────────────────────────────────── -->
+    <h2>4 — Promise.all()</h2>
+    <div class="demo">
+        <div class="controls">
+            <button class="btn-green"  onclick="demoAll()">Promise.all()</button>
+            <button class="btn-red"    onclick="demoAllFail()">Promise.all() with failure</button>
+            <button class="btn-orange" onclick="demoAllSettled()">Promise.allSettled()</button>
+        </div>
+        <div class="output" id="out4">Click a button…</div>
+        <div id="cards4"></div>
+    </div>
+
+    <!-- ─── Section 5: Promise.race() ─────────────────────────────────────── -->
+    <h2>5 — Promise.race()</h2>
+    <div class="demo">
+        <div class="controls">
+            <button class="btn-blue" onclick="demoRace()">Race!</button>
+        </div>
+        <div class="output" id="out5">Click to race…</div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>

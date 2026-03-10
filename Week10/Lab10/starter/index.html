@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Lab 10 — Hacker News Reader</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            max-width: 820px;
+            margin: 0 auto;
+            padding: 1.5rem 1rem;
+            background: #f6f6ef;
+            color: #222;
+        }
+
+        header {
+            background: #ff6600;
+            color: white;
+            padding: 10px 16px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+        }
+
+        header h1 { margin: 0; font-size: 1.2rem; }
+
+        .controls {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        button {
+            padding: 6px 16px;
+            background: white;
+            color: #ff6600;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        label {
+            color: white;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+        }
+
+        .stats {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            background: white;
+            border-radius: 6px;
+            padding: 14px 18px;
+            margin-bottom: 1.5rem;
+            border: 1px solid #ddd;
+        }
+
+        .stat .num { font-size: 1.4rem; font-weight: bold; color: #ff6600; }
+        .stat .lbl { font-size: 0.8rem; color: #666; }
+
+        #status {
+            font-style: italic;
+            color: #555;
+            min-height: 1.4em;
+            margin-bottom: 1rem;
+        }
+
+        .story {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            padding: 12px 16px;
+            margin: 8px 0;
+        }
+
+        .story-title a {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #003;
+            text-decoration: none;
+        }
+
+        .story-title a:hover { text-decoration: underline; }
+
+        .story-meta {
+            font-size: 0.82rem;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .rank {
+            display: inline-block;
+            background: #ff6600;
+            color: white;
+            border-radius: 50%;
+            width: 22px;
+            height: 22px;
+            text-align: center;
+            line-height: 22px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            margin-right: 8px;
+            flex-shrink: 0;
+        }
+
+        .story-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 6px;
+        }
+
+        .error {
+            background: #fff0f0;
+            border: 1px solid #ffcccc;
+            padding: 12px;
+            border-radius: 6px;
+            color: #990000;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Hacker News — Front Page</h1>
+        <div class="controls">
+            <button id="btnLoad">Load Stories</button>
+            <label>
+                <input type="checkbox" id="chkTop10">
+                Top 10 only
+            </label>
+        </div>
+    </header>
+
+    <div id="statsBar"></div>
+    <div id="status"></div>
+    <div id="results"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lodash/lodash.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs/dayjs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs/plugin/relativeTime.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
