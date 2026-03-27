@@ -47,7 +47,7 @@ body {
   justify-content: center;
   padding: 2rem;
 }
-
+.h1 { color: yellow; }
 .app { max-width: 600px; width: 100%; }
 
 .question-card {
@@ -146,7 +146,7 @@ import "./App.css";
 
 const API_URL = "https://opentdb.com/api.php?amount=10&type=multiple";
 
-// The API returns HTML entities (e.g. &amp;) — this converts them to plain text
+// The API returns HTML entities (e.g. &) — this converts them to plain text
 function decode(str) {
   const el = document.createElement("textarea");
   el.innerHTML = str;
