@@ -1,0 +1,106 @@
+body {
+  font-family: system-ui, sans-serif;
+  background: #f0f2f5;
+  margin: 0;
+  color: #1f2937;
+}
+
+.app { max-width: 960px; margin: 0 auto; padding: 1.5rem; }
+
+header { margin-bottom: 1.5rem; }
+header h1 { color: #1e1b4b; margin: 0 0 0.25rem; }
+.avg { color: #6b7280; margin: 0; }
+
+/* Layout */
+.layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 1.25rem;
+  align-items: start;
+}
+
+aside, main {
+  background: white;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.07);
+}
+
+h2 {
+  color: #1e1b4b;
+  margin: 0 0 1rem;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* Form */
+.grade-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin-bottom: 1.25rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.field { display: flex; flex-direction: column; gap: 0.3rem; }
+label { font-weight: 600; font-size: 0.88rem; }
+
+input {
+  border: 1.5px solid #d1d5db;
+  border-radius: 6px;
+  padding: 0.5rem 0.7rem;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+input:focus { border-color: #4f46e5; }
+
+.error { color: #ef4444; font-size: 0.8rem; }
+.field:has(.error) input { border-color: #ef4444; }
+
+button[type="submit"] {
+  background: #4f46e5;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 0.6rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover { background: #4338ca; }
+
+/* Grade list */
+.grade-list { display: flex; flex-direction: column; gap: 0.4rem; }
+
+.grade-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  padding: 0.3rem 0;
+}
+
+.grade-value { font-weight: 700; color: #4f46e5; }
+
+.grade-row button {
+  background: none;
+  border: none;
+  color: #9ca3af;
+  cursor: pointer;
+  font-size: 0.8rem;
+  padding: 0.1rem 0.3rem;
+}
+
+.grade-row button:hover { color: #ef4444; }
+
+/* Chart */
+.empty { color: #9ca3af; text-align: center; padding: 3rem 0; }
+.chart-note { font-size: 0.8rem; color: #9ca3af; margin-top: 0.5rem; }
+
+@media (max-width: 640px) {
+  .layout { grid-template-columns: 1fr; }
+}
